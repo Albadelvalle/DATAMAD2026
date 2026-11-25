@@ -22,6 +22,7 @@ Este repositorio explica cómo acceder, descargar y verificar datos del **Catál
 - [Ejemplo: descarga y verificación de un conjunto de datos](#ejemplo-descarga-y-verificación-de-un-conjunto-de-datos)
 - [Consejos para trabajar con los datos](#consejos-para-trabajar-con-los-datos)
 - [Resolución de problemas](#resolución-de-problemas)
+- [Cómo entregar tu proyecto](#cómo-entregar-tu-proyecto)
 - [Enlaces útiles](#enlaces-útiles)
 
 ---
@@ -218,6 +219,44 @@ Resultado de la comparación estricta:
 | `datastore_search` falla | Puede que el recurso no esté en el DataStore; descarga el fichero desde la `url` de `resource_show`. |
 | Las tildes aparecen como `\u00f1` | Guarda el JSON con `ensure_ascii=False`. |
 | La comparación dice "diferentes" pero los datos parecen iguales | Revisa la sección estricta: puede que las diferencias sean solo de formato, tipos u orden de las filas. |
+
+---
+
+## Cómo entregar tu proyecto
+
+Cada equipo tiene su carpeta en [`proyectos/`](proyectos/), numerada del 1 al 50. Las entregas se hacen con un **pull request** que solo modifique la carpeta de tu equipo. No necesitas permisos en este repositorio, solo una cuenta de GitHub.
+
+### Opción A · Desde la web (sin instalar nada)
+
+1. Entra en `proyectos/<tu número>/` dentro de este repositorio.
+2. Pulsa **Add file → Upload files** y arrastra tus archivos.
+3. GitHub creará automáticamente una copia (fork) en tu cuenta.
+4. Escribe un mensaje, pulsa **Propose changes** y después **Create pull request**.
+5. Rellena la plantilla (número de equipo, proyecto, datos usados) y envíalo.
+
+### Opción B · Con git
+
+```bash
+# 1. Pulsa "Fork" en GitHub y clona tu copia
+git clone https://github.com/<tu-usuario>/DATAMAD2026.git
+cd DATAMAD2026
+
+# 2. Trabaja solo dentro de tu carpeta
+cp -r ~/mi-proyecto/* proyectos/<tu número>/
+git add proyectos/<tu número>
+git commit -m "Equipo <tu número>: entrega del proyecto"
+git push
+
+# 3. En GitHub, desde tu fork: Contribute → Open pull request
+```
+
+### Después de enviarlo
+
+- Una comprobación automática revisa en unos segundos que todos los archivos estén dentro de `proyectos/<tu número>/`. Si aparece una **✗ roja**, abre el detalle para ver qué archivo está fuera de su sitio.
+- Si necesitas corregir algo, sube los cambios a tu fork: se añaden solos al mismo pull request. No abras otro.
+- La organización revisará y fusionará tu entrega.
+
+**Límites de tamaño:** 25 MB por archivo desde la web y 100 MB con git. Para datasets más grandes, incluye un enlace de descarga en tu `README.md`.
 
 ---
 

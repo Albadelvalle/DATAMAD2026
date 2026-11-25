@@ -1,0 +1,66 @@
+name: Validar entrega
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  validar:
+    name: Archivos dentro de proyectos/N
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Comprobar archivos modificados
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+
+            // Los cambios de los organizadores (ramas del propio repositorio) no se validan
+            if (pr.head.repo && pr.head.repo.full_name === pr.base.repo.full_name) {
+              core.info('Pull request interno de los organizadores: no se valida.');
+              return;
+            }
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number,
+              per_page: 100,
+            });
+
+            const rutas = [];
+            for (const f of files) {
+              rutas.push(f.filename);
+              if (f.previous_filename) rutas.push(f.previous_filename);
+            }
+
+            const patron = /^proyectos\/([1-9]|[1-4][0-9]|50)\/.+/;
+            const fuera = rutas.filter(r => !patron.test(r));
+            const carpetas = [...new Set(rutas.filter(r => patron.test(r)).map(r => r.split('/')[1]))];
+
+            if (fuera.length > 0) {
+              core.setFailed(
+                'Estos archivos están fuera de proyectos/N (N del 1 al 50):\n  - ' + fuera.join('\n  - ') +
+                '\n\nMueve tus archivos a la carpeta de tu equipo, por ejemplo proyectos/7/.'
+              );
+              return;
+            }
+
+            if (carpetas.length !== 1) {
+              core.setFailed(
+                'El pull request modifica varias carpetas de equipo: proyectos/' + carpetas.join(', proyectos/') +
+                '\n\nCada pull request debe tocar solo la carpeta de tu equipo.'
+              );
+              return;
+            }
+
+            core.info(`Entrega correcta: ${rutas.length} archivo(s) en proyectos/${carpetas[0]}/`);
+            await core.summary
+              .addHeading(`Entrega correcta · Equipo ${carpetas[0]}`)
+              .addList(rutas.map(r => '`' + r + '`'))
+              .write();
