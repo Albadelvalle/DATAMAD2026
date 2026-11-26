@@ -27,13 +27,7 @@ REGLAS
 
 **Opción A: servidor MCP** (`radar-natalidad`, solo lectura, en [`mcp_server/`](https://github.com/antonmareo10/datamad-radar-natalidad/blob/master/mcp_server/README.md) del repositorio). Instalación: `pip install -r requirements-mcp.txt` (solo necesita `mcp`).
 
-Claude Code:
-
-```bash
-claude mcp add radar-natalidad -- python /ruta/al/repo/mcp_server/server.py
-```
-
-Claude Desktop (`claude_desktop_config.json`):
+En el fichero de configuración MCP de tu asistente (formato estándar `mcpServers`):
 
 ```json
 {
@@ -98,7 +92,7 @@ El asistente se ejecuta en una sesión nueva, sin acceso a las soluciones, y su 
 - **Preguntas con dato:** 8 de 8 correctas, con la cifra, su intervalo y la fuente del radar.
 - **Trampas:** las 2 rechazadas con «no tengo ese dato», sin inventar nada.
 - **Cómo se hizo:**
-  - lo contestó un agente nuevo con el modelo Claude (Anthropic);
+  - lo contestó un agente nuevo, con un modelo de IA general;
   - solo tenía las reglas y las preguntas;
   - consultaba únicamente la API pública del radar;
   - lo puntuó `evaluar.py` de forma determinista contra la API de producción.
@@ -111,4 +105,5 @@ El asistente se ejecuta en una sesión nueva, sin acceso a las soluciones, y su 
 - El puntuador lee las cifras del campo `figures` y busca en el texto la negativa y el aviso; no juzga el tono ni la redacción de la respuesta.
 - Hereda los límites del radar: municipios pequeños con intervalos muy anchos, municipios que ganan familias jóvenes y cambios del ciclo migratorio.
 
-Código escrito con un asistente de IA (Claude Code) bajo la dirección de Antonio González Fernández. Datos: Radar de natalidad municipal, a partir de datos abiertos de la Comunidad de Madrid (datos.comunidad.madrid), CC BY 4.0.
+Antonio González Fernández · DATAMAD 2026. Datos: Radar de natalidad municipal, a partir de datos abiertos de la Comunidad de Madrid (datos.comunidad.madrid), CC BY 4.0.
+
