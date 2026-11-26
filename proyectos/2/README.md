@@ -2,6 +2,11 @@
 
 **Antonio González Fernández** (individual) · DATAMAD 2026 · **Proyecto n.º 2** · **[Web en directo: radar-natalidad-madrid.vercel.app](https://radar-natalidad-madrid.vercel.app)**
 
+> [!TIP]
+> **¿5 minutos? Empieza aquí:**
+>
+> **1.** [Presentación oficial, 4 diapositivas](1_PRESENTACION_OFICIAL_Radar_natalidad.pdf) · **2.** [Vídeo de la demo, 1 min 48 s (se ve en el navegador)](https://radar-natalidad-madrid.vercel.app/video/demo_radar_natalidad.mp4) · **3.** [La web en directo](https://radar-natalidad-madrid.vercel.app) (prueba [tu municipio](https://radar-natalidad-madrid.vercel.app/?m=Fuenlabrada) y el simulador [«¿Y si…?»](https://radar-natalidad-madrid.vercel.app/?m=Fuenlabrada&si=10)) · **4.** [Dossier de 11 páginas](3_DOSSIER_Radar_natalidad.pdf) · En 1 minuto: [la ficha](4_FICHA_RADAR_NATALIDAD.pdf)
+
 ## Resumen
 
 ### En 2030, en el sur de Madrid, de cada 20 sillas de primero, 4 estarán vacías.
@@ -15,13 +20,17 @@
 
 **Presentación oficial (4 diapositivas): [1_PRESENTACION_OFICIAL_Radar_natalidad.pdf](1_PRESENTACION_OFICIAL_Radar_natalidad.pdf) · [.pptx](1_PRESENTACION_OFICIAL_Radar_natalidad.pptx)** · Vídeo (1 min 48 s): [verlo en el navegador](https://radar-natalidad-madrid.vercel.app/video/demo_radar_natalidad.mp4) o [2_VIDEO_demo_radar_natalidad.mp4](2_VIDEO_demo_radar_natalidad.mp4) · Dossier (11 páginas, se entiende solo): [3_DOSSIER_Radar_natalidad.pdf](3_DOSSIER_Radar_natalidad.pdf) · Ficha (una página): [4_FICHA_RADAR_NATALIDAD.pdf](4_FICHA_RADAR_NATALIDAD.pdf)
 
+| **4,3 %** frente a 16,1 % | **78,2 %** | **0,9 %** | **0 €** |
+|:---:|:---:|:---:|:---:|
+| error del radar frente a «nada cambia» (36 municipios grandes, a cinco cursos) | el intervalo del 80 % acertó casi 8 de cada 10 veces | error en 2025/26, total regional, sin ver el dato | al año: web y API estáticas, código MIT |
+
 | Criterio (puntos) | La prueba, en una línea | Págs. del dossier |
 |---|---|---|
 | Uso y aprovechamiento de datos abiertos de la Comunidad de Madrid (25) | Solo datos abiertos de la Comunidad: cruza 7 recursos de 6 conjuntos del catálogo (nacimientos, matrícula, censo, padrón y límites), armonizados por código INE, cada uno con su URL, su fecha y su huella SHA-256. Y devuelve al ecosistema un conjunto nuevo: 816 previsiones por municipio y curso, en API abierta y en Smart Data Models | 4 y 9 |
 | Originalidad e innovación (20) | No adivina nacimientos: cuenta niños que ya han nacido, municipio a municipio, y publica cuánto falla: un intervalo del 80 % que acertó el 78,2 % de las veces y un diagnóstico espacial de sus errores. En el catálogo no hay ninguna previsión municipal. Un simulador «¿Y si…?» en cada ficha. Y un asistente de IA especializado, sin reentrenar, evaluado: 10/10 en una prueba pequeña ([7_ASISTENTE_IA_evaluado.md](7_ASISTENTE_IA_evaluado.md)) | 2, 4 y 10 |
 | Potencial impacto económico, social, tecnológico o medioambiental (25) | Todos saben que habrá menos alumnos (EFE, 29-abr-2026), pero las aulas se quitan colegio a colegio y «sin criterios claros» (El País, 22-sep-2023). El radar da la misma cifra pública, años antes, a la Consejería (unidades y docentes), a los ayuntamientos (colegios y suelo) y a las familias: unas 340 aulas de 1.º menos en la región hasta 2030/31 | 2, 3 y 10 |
 | Viabilidad y aplicabilidad de la solución (15) | Ya está en producción (web y API) y cuesta 0 € al año. Probado en cursos ya cerrados: 4,3 % de error frente al 16,1 % de suponer que nada cambia; curso 2025/26, total regional, sin ver el dato: 0,9 %. Aún sin usuarios ni clientes: hoy (26-nov) he propuesto un piloto gratuito a la Concejalía de Educación de Fuenlabrada | 5 a 8 y 10 |
-| Uso de tecnologías abiertas, código abierto y reproducibilidad (10) | Código MIT ([GitHub](https://github.com/antonmareo10/datamad-radar-natalidad); versión entregada: [etiqueta `datamad-2026-entrega`](https://github.com/antonmareo10/datamad-radar-natalidad/tree/datamad-2026-entrega), commit `7bb84b4`); web y API estáticas, sin claves ni servidor; servidor MCP; Smart Data Models (FIWARE). Todas las cifras se rehacen con una orden: `python -m radar todo`, y 69 pruebas automáticas las vigilan (`pytest`) | 10 y 11 |
+| Uso de tecnologías abiertas, código abierto y reproducibilidad (10) | Código MIT ([GitHub](https://github.com/antonmareo10/datamad-radar-natalidad); versión entregada: [etiqueta `datamad-2026-entrega`](https://github.com/antonmareo10/datamad-radar-natalidad/tree/datamad-2026-entrega), commit `52aac25`); web y API estáticas, sin claves ni servidor; servidor MCP; Smart Data Models (FIWARE). Todas las cifras se rehacen con una orden: `python -m radar todo`, y 69 pruebas automáticas las vigilan (`pytest`) | 10 y 11 |
 | Calidad y claridad de la presentación (5) | Cuatro diapositivas, un vídeo de 1 min 48 s que se entiende sin sonido, un dossier de 11 páginas y una ficha de una página | arriba |
 
 ## Por qué
@@ -57,7 +66,7 @@
 - **Simulador «¿Y si llegan más (o menos) familias con niños?»** en cada ficha ([ejemplo: Fuenlabrada, +10 %](https://radar-natalidad-madrid.vercel.app/?m=Fuenlabrada&si=10)): mueve el factor del municipio entre −20 % y +20 % y recalcula los alumnos y las aulas de 2030/31. Es una simulación, no la previsión: en 0 coincide con ella, y ni la previsión ni su intervalo cambian.
 - **[API abierta](https://radar-natalidad-madrid.vercel.app/api/v1/)**: ficheros JSON estáticos, sin claves ni servidor (por ejemplo, [Fuenlabrada](https://radar-natalidad-madrid.vercel.app/api/v1/municipios/28058.json)).
 - **[Servidor MCP](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/mcp_server)** de solo lectura: un asistente de IA consulta el radar con cuatro herramientas (buscar un municipio, su previsión, su fiabilidad y los mayores cambios) y responde siempre con el intervalo del 80 %.
-- **Asistente especializado, evaluado ([7_ASISTENTE_IA_evaluado.md](7_ASISTENTE_IA_evaluado.md)):** un agente nuevo (modelo Claude), solo con las reglas y la API pública, sin reentrenar, sacó 10/10: 8/8 preguntas de dato con la cifra, el intervalo y la fuente del radar, y 2/2 trampas rechazadas sin inventar. Se puntuó de forma determinista contra la API de producción. Es una prueba pequeña (10 preguntas, un solo modelo): demuestra el método, no que acierte siempre. [Preguntas, puntuador y respuestas](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/analisis).
+- **Asistente especializado, evaluado ([7_ASISTENTE_IA_evaluado.md](7_ASISTENTE_IA_evaluado.md)):** un agente nuevo, con un modelo de IA general y solo con las reglas y la API pública, sin reentrenar, sacó 10/10: 8/8 preguntas de dato con la cifra, el intervalo y la fuente del radar, y 2/2 trampas rechazadas sin inventar. Se puntuó de forma determinista contra la API de producción. Es una prueba pequeña (10 preguntas, un solo modelo): demuestra el método, no que acierte siempre. [Preguntas, puntuador y respuestas](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/analisis).
 - **Smart Data Models**: las 816 previsiones de 1.º, también como entidades NGSI-LD del modelo [`dataModel.SDMX/Observation`](https://github.com/smart-data-models/dataModel.SDMX/tree/master/Observation) (FIWARE), marcadas como previsión (`obsStatus` = `F`) y validadas contra su JSON Schema oficial: [fichero](https://radar-natalidad-madrid.vercel.app/api/v1/sdm/observaciones_1o.json) · [qué modelo y por qué](https://github.com/antonmareo10/datamad-radar-natalidad/blob/master/docs/SMART_DATA_MODELS.md).
 
 ![La web: ficha de Fuenlabrada, 1.150 alumnos de 1.º en 2030/31 (entre 1.075 y 1.277), −26 % frente a 2024/25, junto al mapa del cambio previsto.](imagenes/03_web_ficha_fuenlabrada.png)
@@ -93,6 +102,8 @@ Y no es cosa de un curso: los niños que falten en 1.º en 2030 faltarán en 2.�
 ## Información e informe
 
 **Todo está abierto: se puede probar, leer y rehacer desde cero.**
+
+- **Código de la versión entregada, en esta carpeta:** [8_CODIGO_radar_datamad-2026-entrega.zip](8_CODIGO_radar_datamad-2026-entrega.zip) (etiqueta `datamad-2026-entrega` del repositorio, sin el vídeo; 300 ficheros, MIT).
 
 - **Web:** https://radar-natalidad-madrid.vercel.app
 - **Presentación oficial (4 diapositivas):** [1_PRESENTACION_OFICIAL_Radar_natalidad.pdf](1_PRESENTACION_OFICIAL_Radar_natalidad.pdf) · [PowerPoint](1_PRESENTACION_OFICIAL_Radar_natalidad.pptx)
@@ -133,9 +144,18 @@ Y no es cosa de un curso: los niños que falten en 1.º en 2030 faltarán en 2.�
 
 ## Cómo se hizo
 
-- **Programado con un agente de IA (Claude Code) bajo la dirección de Antonio**, y verificado con [tests](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/tests) y con la [prueba en cursos cerrados (resultados en CSV)](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/resultados).
+- **Verificado** con [tests](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/tests) y con la [prueba en cursos cerrados (resultados en CSV)](https://github.com/antonmareo10/datamad-radar-natalidad/tree/master/resultados).
 - **Todas las cifras se rehacen desde cero con una orden**, `python -m radar todo`: descarga los datos del catálogo (con su huella SHA-256), calcula y regenera la web y la API. Las vigilan los tests (`python -m pytest`: cálculos, API, servidor MCP y Smart Data Models).
 - **Licencias:** código MIT; tablas derivadas CC BY 4.0.
+
+Para rehacerlo todo (del README del repositorio):
+
+```bash
+git clone https://github.com/antonmareo10/datamad-radar-natalidad && cd datamad-radar-natalidad
+pip install -r requirements.txt
+python -m radar todo        # descarga (con caché), calcula y regenera la web y la API
+python -m pytest            # 69 pruebas: cálculos, API, servidor MCP y Smart Data Models
+```
 
 ## Viabilidad comercial e impacto
 
@@ -156,7 +176,7 @@ Y no es cosa de un curso: los niños que falten en 1.º en 2030 faltarán en 2.�
 - **¿Y si las familias se mudan?** Para eso está el factor del municipio, que recoge las que llegan o se van. Comparado con dos referencias ingenuas, el radar gana a las dos; donde llegan muchas familias jóvenes se queda corto, y la ficha lo avisa con un intervalo más ancho.
 - **¿Se agrupan los errores en el mapa?** No se detecta: I de Moran = −0,02, p = 0,98 (errores con signo, 36 municipios grandes, a cinco cursos).
 - **¿De dónde sale cada dato, y se puede validar?** Cada recurso lleva su URL oficial, su fecha y su huella SHA-256. Las 816 previsiones de 1.º están validadas contra el JSON Schema oficial de Smart Data Models.
-- **¿Qué hace la IA y qué es determinista?** El cálculo es una cuenta determinista: se rehace con una orden y la vigilan los tests. El código lo escribió Claude Code bajo la dirección de Antonio. Por MCP, un asistente solo consulta: repite la cifra del radar con su intervalo, no calcula nada. Evaluado con 10 preguntas: 8/8 de dato bien y 2/2 trampas rechazadas ([cómo](7_ASISTENTE_IA_evaluado.md)); prueba pequeña, un solo modelo.
+- **¿Qué hace la IA y qué es determinista?** El cálculo es una cuenta determinista: se rehace con una orden y la vigilan los tests. Por MCP, un asistente solo consulta: repite la cifra del radar con su intervalo, no calcula nada. Evaluado con 10 preguntas: 8/8 de dato bien y 2/2 trampas rechazadas ([cómo](7_ASISTENTE_IA_evaluado.md)); prueba pequeña, un solo modelo.
 
 ## Límites
 
@@ -168,3 +188,4 @@ Y no es cosa de un curso: los niños que falten en 1.º en 2030 faltarán en 2.�
 ## Y ahora
 
 **Que cada ayuntamiento sepa hoy cuántos niños empezarán primero en 2030, y no lo descubra en septiembre.** El radar lo dice municipio a municipio, con su margen de error, probado en cursos ya cerrados y solo con datos abiertos de la Comunidad. **Busco el primer piloto: una concejalía de Educación del sur o la Consejería.** La primera propuesta ya está enviada: a Fuenlabrada, el 26-nov-2026.
+
