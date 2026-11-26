@@ -1,0 +1,8 @@
+pandas>=2.0,<4
+numpy>=1.24,<3
+scipy>=1.10,<2
+pyproj>=3.5,<4
+pyshp>=2.3,<4
+shapely>=2.0,<3
+requests>=2.31,<3
+osmium>=4.0,<5

@@ -1,0 +1,21 @@
+﻿orden;momento;tipo;nombre;direccion;municipio;lon;lat;vecinos_nuevos;mayores_65_nuevos
+1;domingo 3:00;Policía nacional;Policía Nacional - Comisaría de Villaverde.;;Madrid;-3,693753;40,353223;2586;899
+2;domingo 3:00;Gasolinera 24 h;Galp;Calle Bravo Murillo, 229;Madrid;-3,701833;40,45725;2817;561
+3;domingo 3:00;Gasolinera 24 h;Ballenoil;Avenida Nuestra Sra. De Fatima, 22;Madrid;-3,745806;40,385278;2786;563
+4;domingo 3:00;Guardia Civil;Guardia Civil - Cuartel de Getafe.;;Getafe;-3,734654;40,302166;2587;624
+5;domingo 3:00;Gasolinera 24 h;Bp;Avenida Fuenlabrada, 16;Leganés;-3,761944;40,332306;2542;637
+6;domingo 3:00;Gasolinera 24 h;Shell;Calle Alberto Aguilera, 18;Madrid;-3,7085;40,43;2129;531
+7;domingo 3:00;Policía local;Policía Local Collado Villalba;;Collado Villalba;-4,005594;40,627248;2143;345
+8;domingo 3:00;Gasolinera 24 h;Ballenoil;Avenida Andalucia, 7;Valdemoro;-3,6735;40,1895;2170;247
+9;domingo 3:00;Policía nacional;Policía nacional;;Madrid;-3,706883;40,422771;2118;278
+10;domingo 3:00;Gasolinera 24 h;Repsol;Av Doctor Esquerdo, 153;Madrid;-3,669722;40,409833;1770;551
+1;martes 11:00;Farmacia;Farmacia;Calle Lope de Rueda 1;Alcalá de Henares;-3,35833013514417;40,48920952219662;5459;1391
+2;martes 11:00;Farmacia;Farmacia;Calle Valdemoro 12;Getafe;-3,732024345326312;40,30128669765663;5014;1331
+3;martes 11:00;Farmacia;Farmacia;Calle de Marcenado 29;Madrid;-3,673560968960819;40,447485033245364;5232;1090
+4;martes 11:00;Farmacia;Farmacia;Avda de las Ciudades 10;Getafe;-3,723633592951253;40,31797578560808;5066;1126
+5;martes 11:00;Farmacia;Farmacia;Calle de Almonacid 38;Madrid;-3,6600624067185117;40,396774123632234;5105;888
+6;martes 11:00;Farmacia;Farmacia;Calle de San Nicolás 7;San Sebastián de los Reyes;-3,6312435220128507;40,54985683190042;4896;1023
+7;martes 11:00;Farmacia;Farmacia;Calle del Matadero 3;Alcorcón;-3,8268144711612297;40,34636426032745;4468;1210
+8;martes 11:00;Farmacia;Farmacia;Calle de Ledesma 46;Madrid;-3,6467617467311033;40,42963786628477;4768;909
+9;martes 11:00;Farmacia;Farmacia;Calle de Juan Bautista de Toledo 27;Madrid;-3,672447674405049;40,44256484845483;4379;977
+10;martes 11:00;Farmacia;Farmacia;Avda Reyes Católicos 43;Alcalá de Henares;-3,3779629375224816;40,47394795765616;4360;938
