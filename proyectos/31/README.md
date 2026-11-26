@@ -6,12 +6,15 @@
 
 [![Ver el vídeo de la demo (2 min)](video-demo.png)](https://donde-hace-falta.vercel.app/demo.mp4)
 
-**[▶ Ver el vídeo en el navegador](https://donde-hace-falta.vercel.app/demo.mp4)** (sin voz y con rótulos; copia en esta carpeta: [demo-donde-hace-falta.mp4](demo-donde-hace-falta.mp4)).
+- **[▶ Ver el vídeo en el navegador](https://donde-hace-falta.vercel.app/demo.mp4)** (se reproduce al momento).
+- **[Copia del vídeo en GitHub, en esta carpeta](demo-donde-hace-falta.mp4)** (pulsa el botón de descarga).
+
+Sin voz y con rótulos.
 
 - **Pruébalo:** https://donde-hace-falta.vercel.app
 - **Presentación:** [donde-hace-falta-DATAMAD2026.pdf](donde-hace-falta-DATAMAD2026.pdf)
 - **Código (MIT) y datos derivados (CC BY 4.0):** https://github.com/guillemolero10/donde-hace-falta
-- **Integrante:** Guillermo Molero
+- **Integrante:** Guillermo Molero Jiménez
 
 ## Qué es
 
