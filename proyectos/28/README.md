@@ -2,6 +2,10 @@
 
 **Integrantes:** Marcos Camacho Villardón (proyecto individual)
 
+[![Ver el vídeo de Llegar al fresco (1:33)](video-portada.jpg)](https://presentacion.outofthemark.com/assets/video.mp4)
+
+**▶️ [Ver el vídeo (1:33)](https://presentacion.outofthemark.com/assets/video.mp4)** · **[Probar la app](https://llegaralfresco.outofthemark.com)** · [Presentación](https://presentacion.outofthemark.com)
+
 Rutas a pie para **las personas mayores que necesitan sentarse por el camino**: la app calcula el camino que nunca supera los metros sin sentarse que cada persona puede andar, con sombra, cuestas, fuentes y aseos. Además ayuda a los ayuntamientos y a la Comunidad a decidir dónde poner el próximo banco y a qué municipios llevar la herramienta después.
 
 **88,1 %** de 3.102 trayectos reales al centro de salud en Madrid obliga a andar más de 200 m seguidos sin un banco; en el **60,5 %** ninguna ruta lo evita.
