@@ -14,6 +14,8 @@ Ana García · Giulio Consoli
 
 [![Ver el vídeo de presentación de Madrid a tu medida](./assets/portada-video.jpg)](./assets/video-presentacion.mp4)
 
+▶️ **[Ver el vídeo en Google Drive](https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing)** — https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing
+
 Descubre Madrid a tu medida a través de las historias de María, Juan, Emilio y Charo: cuatro personas que comparten una misma ciudad, pero tienen necesidades, rutinas y prioridades diferentes.
 
 **Recomendamos visualizar el vídeo con el volumen activado.** Su canción original ha sido creada específicamente para acompañar la narrativa del proyecto y explicar sus funcionalidades.
