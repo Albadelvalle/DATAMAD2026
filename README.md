@@ -226,6 +226,8 @@ Resultado de la comparación estricta:
 
 Cada equipo tiene su carpeta en [`proyectos/`](proyectos/), numerada del 1 al 50. Las entregas se hacen con un **pull request** que solo modifique la carpeta de tu equipo. No necesitas permisos en este repositorio, solo una cuenta de GitHub.
 
+> 📽️ **Resumen en diapositivas:** [Cómo entregar tu proyecto (PDF)](DATAMAD%202026%20%C2%B7%20C%C3%B3mo%20entregar%20tu%20proyecto.pdf), también disponible en [PowerPoint](DATAMAD%202026%20%C2%B7%20C%C3%B3mo%20entregar%20tu%20proyecto.pptx).
+
 ### Opción A · Desde la web (sin instalar nada)
 
 1. Entra en `proyectos/<tu número>/` dentro de este repositorio.
