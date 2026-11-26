@@ -2,6 +2,8 @@
 
 **Plataforma de Inteligencia Sanitaria y Libre Elección Ciudadana del SERMAS**
 
+Acceso en linea: https://madrid-sin-esperas.onrender.com
+
 ---
 
 ## Autoría y Contexto Académico
