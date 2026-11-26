@@ -1,0 +1,16 @@
+# Secrets (API keys) - never commit these
+.streamlit/secrets.toml
+.env
+.env.*
+*.save
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Raw downloads used to train the pollen model (large; rebuilt by train_pollen_model.py)
+model_data/
