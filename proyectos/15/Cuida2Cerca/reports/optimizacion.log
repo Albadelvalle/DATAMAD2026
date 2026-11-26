@@ -1,0 +1,25 @@
+centro_dia_2030_meta5.8_R15_B1000: 199 zonas, 199 sitios (199 candidatos), 3413 arcos, 500 escenarios; necesidad media 13,254 plazas (p10 12,644, p90 13,834); capacidad actual 11,188; presupuesto 1,000.
+# Optimización de plazas de centro de día
+
+centro_dia_2030_meta5.8_R15_B1000: 199 zonas, 199 sitios (199 candidatos), 3413 arcos, 500 escenarios; necesidad media 13,254 plazas (p10 12,644, p90 13,834); capacidad actual 11,188; presupuesto 1,000.
+
+Entrenamiento con 20 escenarios; evaluación fuera de muestra con 500. Objetivo: personas sin plaza accesible (media sobre escenarios) + 0,01 por persona-km.
+
+| Algoritmo | Objetivo (500 esc.) | Sin plaza (media) | Sin plaza (p90) | Personas atendidas extra | Centros | Plazas | Segundos |
+|---|---|---|---|---|---|---|---|
+| sin_actuacion | 2,270.9 | 2,098 | 2,679 | 0 | 0 | 0 | 0.0 |
+| reparto_proporcional | 1,400.2 | 1,218 | 1,799 | 880 | 6 | 880 | 0.0 |
+| voraz | 1,424.0 | 1,231 | 1,809 | 867 | 6 | 880 | 13.3 |
+| proporcional+busqueda_local | 1,392.2 | 1,218 | 1,799 | 880 | 6 | 880 | 26.5 |
+| voraz+busqueda_local | 1,399.8 | 1,218 | 1,799 | 880 | 6 | 880 | 26.5 |
+| milp | 1,391.3 | 1,218 | 1,799 | 880 | 6 | 880 | 49.9 |
+
+Gap del MILP sobre la muestra de entrenamiento: 0.08 %.
+
+## Plan con menor objetivo fuera de muestra: milp
+- Madrid - Carabanchel: +150 plazas (hoy 291 con financiación pública).
+- Madrid - Ciudad Lineal: +150 plazas (hoy 285 con financiación pública).
+- Madrid - Hortaleza: +150 plazas (hoy 79 con financiación pública).
+- Madrid - Retiro: +150 plazas (hoy 90 con financiación pública).
+- Madrid - San Blas: +150 plazas (hoy 155 con financiación pública).
+- Madrid - Puente de Vallecas: +130 plazas (hoy 314 con financiación pública).

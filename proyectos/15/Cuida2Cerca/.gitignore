@@ -1,0 +1,15 @@
+# Entornos virtuales (también el creado en la raíz del proyecto)
+.venv/
+bin/
+lib/
+include/
+pyvenv.cfg
+# IDE y sistema
+.idea/
+.DS_Store
+__pycache__/
+*.pyc
+# Salidas de trabajo locales
+Claude outputs/
+# Datos de la exploración inicial de otras propuestas (polen, listas de espera)
+revision/
