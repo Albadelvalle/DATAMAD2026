@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cascada</title>
+  <link rel="stylesheet" href="vendor/maplibre-gl.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="con-portada">
+  <header>
+    <h1>Cascada</h1>
+    <span class="subtitulo">Riesgos sobre la población con menor capacidad de autoprotección · Comunidad de Madrid</span>
+    <div class="botones" role="group" aria-label="Modo">
+      <button id="modo-basal" class="activo" type="button">Análisis basal</button>
+      <button id="modo-prealerta" type="button">Prealerta</button>
+      <button id="modo-crisis" type="button">Gestión de crisis</button>
+    </div>
+    <div class="botones" role="group" aria-label="Mapa de fondo">
+      <button id="fondo-mapa" class="activo" type="button">Mapa</button>
+      <button id="fondo-orto" type="button">Ortofoto</button>
+    </div>
+    <!-- Vista en 3D sobre el relieve del IGN: apagada al arrancar, en los tres modos -->
+    <div class="botones" role="group" aria-label="Vista">
+      <button id="vista-3d" type="button" aria-pressed="false" title="Inclinar el mapa sobre el relieve">3D</button>
+    </div>
+  </header>
+  <main>
+    <div id="mapa">
+      <button id="plegar-panel" type="button" title="Ocultar el panel lateral" aria-controls="panel" aria-expanded="true">›</button>
+      <!-- Ficha de la celda de 1 km o del activo (análisis basal): ventana arriba a la izquierda con su botón Cerrar -->
+      <div id="ficha-mapa" role="dialog" aria-label="Ficha" hidden>
+        <p class="acciones"><button id="ficha-cerrar" type="button">Cerrar</button></p>
+        <section id="ficha"></section>
+      </div>
+      <!-- Buscador de municipios: arriba en el centro del mapa, en los tres modos -->
+      <div id="buscador" role="search">
+        <input id="buscador-texto" type="search" placeholder="Buscar municipio…" aria-label="Buscar municipio"
+          autocomplete="off" role="combobox" aria-expanded="false" aria-controls="buscador-lista">
+        <ul id="buscador-lista" role="listbox" hidden></ul>
+      </div>
+      <!-- Portada al arrancar: centrada sobre el mapa, con qué hace Cascada, las cifras de los datos y las tres entradas.
+           Se cierra con una entrada o con su botón y no vuelve a abrirse. El detalle de los datos y la leyenda de trenes
+           y tráfico van plegados al pie -->
+      <div id="datos-inicio" role="dialog" aria-labelledby="datos-inicio-titulo">
+        <h2 id="datos-inicio-titulo">Cascada</h2>
+        <p class="lema">Cruza los riesgos del Catálogo de Riesgos Potenciales de la Comunidad de Madrid con los colegios, hospitales y centros sociales donde está la población que menos puede protegerse por sí misma. Ante un incendio o la rotura de una presa, simula cómo avanza la amenaza y a qué hora llega a cada centro.</p>
+        <div class="portada-cifras">
+          <div><strong id="cifra-centros">…</strong><span>centros educativos, sanitarios y sociales</span></div>
+          <div><strong id="cifra-habitantes">…</strong><span>millones de habitantes, en celdas de 1 km</span></div>
+          <div><strong id="cifra-capas">…</strong><span>capas de peligrosidad del catálogo</span></div>
+          <div><strong id="cifra-presas">…</strong><span>presas con su zona inundable</span></div>
+          <div><strong id="cifra-trenes">…</strong><span>trenes de viajeros circulando ahora, y el tráfico, en tiempo real</span></div>
+        </div>
+        <div class="portada-entradas">
+          <button id="entrada-incendio" type="button" class="principal"><strong>Simular un incendio</strong>
+            <span>Sitúa la alerta en el mapa o elige un foco de satélite. Avance en 24 horas con el viento de AEMET.</span></button>
+          <button id="entrada-presa" type="button" class="principal"><strong>Simular la rotura de una presa</strong>
+            <span>Elige la presa. Llegada del agua aguas abajo, hora a hora.</span></button>
+          <button id="entrada-basal" type="button"><strong>Explorar el riesgo basal</strong>
+            <span>Riesgos de cada celda de 1 km y de cada centro, con el peligro del catálogo.</span></button>
+        </div>
+        <details class="portada-detalle">
+        <summary>Datos del visor y fuentes</summary>
+        <p class="ayuda-inicio">Haz clic en el mapa para ver los riesgos de la <strong>celda de 1 km</strong>, o en un activo para ver los suyos. Enciende capas y activos en el panel derecho.</p>
+        <div class="columnas">
+          <div><section id="datos-activos"><p class="meta">Cargando los activos…</p></section></div>
+          <div>
+            <section id="datos-capas"></section>
+            <section id="datos-poblacion"><p class="meta">Consultando la población…</p></section>
+            <section id="movilidad-leyenda" hidden></section>
+          </div>
+        </div>
+        </details>
+        <p class="acciones"><button id="datos-inicio-cerrar" type="button">Cerrar</button></p>
+      </div>
+      <div id="cronologia-mapa" hidden></div>
+      <div id="esalert-mapa" hidden>
+        <div class="barra"><span>ES-Alert</span><span id="esalert-mapa-hora"></span></div>
+        <div class="tarjeta"><div class="titulo">⚠ Alerta de Protección Civil</div><p id="esalert-mapa-texto"></p></div>
+      </div>
+      <div id="reproductor" hidden>
+        <div class="controles">
+          <button id="rep-inicio" type="button" title="Volver al inicio">⏮</button>
+          <button id="rep-play" type="button" title="Reproducir o pausar">▶</button>
+          <select id="rep-velocidad" title="Minutos simulados por segundo">
+            <option value="1">1 min/s</option>
+            <option value="5">5 min/s</option>
+            <option value="15" selected>15 min/s</option>
+            <option value="60">1 h/s</option>
+          </select>
+          <select id="rep-camara" title="Movimiento de la cámara durante la reproducción">
+            <option value="fija" selected>Cámara fija</option>
+            <option value="clave">Seguir sucesos clave</option>
+          </select>
+          <label class="rep-pausa" title="Parar la reproducción al alcanzar una instalación Seveso, una conducción o un centro de vulnerabilidad muy alta"><input type="checkbox" id="rep-pausa" checked> Pausar en sucesos clave</label>
+          <span id="rep-reloj" class="reloj"></span>
+          <span class="cortes">
+            <button type="button" data-h="1">1 h</button><button type="button" data-h="3">3 h</button>
+            <button type="button" data-h="6">6 h</button><button type="button" data-h="12">12 h</button>
+            <button type="button" data-h="24">24 h</button>
+          </span>
+        </div>
+        <div id="rep-sucesos"></div>
+        <input id="rep-barra" type="range" min="0" max="1440" step="1" value="0" list="rep-marcas">
+        <datalist id="rep-marcas">
+          <option value="60"></option><option value="180"></option><option value="360"></option>
+          <option value="720"></option><option value="1440"></option>
+        </datalist>
+      </div>
+    </div>
+    <aside id="panel">
+      <details id="elementos" open>
+        <summary>Elementos del mapa</summary>
+        <label class="elemento" title="Mostrar u ocultar los nombres del mapa"><input type="checkbox" id="ver-nombres"> Nombres</label>
+        <label class="elemento" title="Trenes de viajeros en tiempo real (Renfe)"><input type="checkbox" id="ver-trenes"> Trenes</label>
+        <label class="elemento" title="Tráfico en tiempo real (Ayuntamiento de Madrid y DGT)"><input type="checkbox" id="ver-trafico"> Tráfico</label>
+      </details>
+      <!-- Capas de peligrosidad y activos: comunes a los tres modos -->
+      <details id="capas-peligrosidad" open>
+        <summary>Capas de peligrosidad</summary>
+        <div id="capas"></div>
+        <p class="leyenda" id="leyenda"></p>
+      </details>
+      <details id="activos-panel" open>
+        <summary>Activos</summary>
+        <label class="grupo"><input type="checkbox" id="ver-activos"> Todos</label>
+        <div id="familias"></div>
+      </details>
+      <!-- La ficha de la celda y del activo va en una ventana sobre el mapa y la ayuda, en «Datos del visor»
+          : en el panel derecho, solo los selectores -->
+      <div id="panel-basal"></div>
+
+      <div id="panel-prealerta" hidden>
+        <section>
+          <h2>Prealerta a 7 días</h2>
+          <div id="prealerta-estado"></div>
+          <div id="prealerta-dias" class="dias"></div>
+          <p class="leyenda-pa">Municipios: <span class="pa1"></span>amarillo <span class="pa2"></span>naranja <span class="pa3"></span>rojo
+            · <span class="anillo"></span>activo con riesgo focal · <span class="raya"></span>zonas de aviso de AEMET</p>
+        </section>
+        <section id="prealerta-municipio" hidden></section>
+        <section id="prealerta-dia"></section>
+        <section id="prealerta-activos"></section>
+        <details id="prealerta-capas">
+          <summary>Propensión del catálogo a fenómenos meteorológicos</summary>
+          <div id="capas-meteo"></div>
+          <p class="leyenda" id="leyenda-meteo"></p>
+          <p class="nota">Capas de peligrosidad meteorológica del Catálogo de Riesgos Potenciales: propensión climática de cada punto, con detalle hasta el zoom 11.</p>
+        </details>
+      </div>
+
+      <div id="panel-crisis" hidden>
+        <section id="alerta">
+          <!-- Amenaza de la crisis: incendio forestal o rotura de presa -->
+          <div class="botones tipo-crisis" role="group" aria-label="Amenaza">
+            <button id="crisis-incendio" class="activo" type="button">Incendio</button>
+            <button id="crisis-presa" type="button">Rotura de presa</button>
+          </div>
+          <h2 id="alerta-titulo">Alerta de incendio</h2>
+          <p id="alerta-ayuda">Haz clic en el mapa para situar la alerta, o elige un foco de calor detectado por satélite.</p>
+          <p id="focos-boton"><button id="ver-focos" type="button">Focos de satélite (NASA FIRMS, 24 h)</button></p>
+          <div id="focos-lista"></div>
+          <div id="presa-eleccion" hidden>
+            <label>Presa <select id="presa-lista"><option value="">Elige una presa…</option></select></label>
+          </div>
+          <div id="alerta-datos" hidden>
+            <p id="alerta-punto"></p>
+            <label><span id="alerta-hora-texto">Hora de la ignición</span> <input id="alerta-hora" type="datetime-local"></label>
+            <fieldset id="alerta-viento">
+              <legend>Viento</legend>
+              <label><input type="radio" name="viento" value="aemet" checked> AEMET (observado y previsto)</label>
+              <label><input type="radio" name="viento" value="manual"> Introducido a mano</label>
+              <div id="viento-manual" hidden>
+                <label>Velocidad <input id="viento-vel" type="number" min="0" max="150" step="1" value="20"> km/h</label>
+                <label>Viene del
+                  <select id="viento-desde">
+                    <option value="0">N</option><option value="45">NE</option><option value="90">E</option>
+                    <option value="135">SE</option><option value="180">S</option><option value="225">SO</option>
+                    <option value="270" selected>O</option><option value="315">NO</option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+            <p><button id="simular" type="button" class="principal">Simular la evolución (24 h)</button></p>
+            <p id="estado"></p>
+          </div>
+        </section>
+        <section id="resultado" hidden></section>
+        <section id="comunicaciones" hidden>
+          <h3>Comunicaciones (ficticias, para el instante mostrado)</h3>
+          <div class="rrss"><div class="cabecera">Mensaje para redes sociales</div><p id="rrss-texto"></p></div>
+          <div class="esalert"><div class="cabecera">ES-Alert · aviso a móviles por celda</div><p id="esalert-texto"></p></div>
+        </section>
+      </div>
+    </aside>
+  </main>
+  <footer>
+    Mapa base y ortofoto: © Instituto Geográfico Nacional (IGN). Datos: Comunidad de Madrid (Catálogo de Riesgos Potenciales;
+    centros educativos, sanitarios y de atención social; Red de Calidad del Aire), INE (Censo 2021), AEMET, Copernicus EFFIS, NASA FIRMS,
+    Renfe (CC BY 4.0), Ayuntamiento de Madrid y Dirección General de Tráfico.
+  </footer>
+  <script src="vendor/maplibre-gl.js"></script>
+  <script src="vendor/pmtiles.js"></script>
+  <script src="/externo/configuracion.js"></script>
+  <script src="mapabase.js"></script>
+  <script src="app.js"></script>
+  <script src="crisis.js"></script>
+  <script src="movilidad.js"></script>
+  <script src="prealerta.js"></script>
+</body>
+</html>
