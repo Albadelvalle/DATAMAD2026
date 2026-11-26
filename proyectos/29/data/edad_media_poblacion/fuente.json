@@ -1,0 +1,16 @@
+{
+  "title": "Edad media de la población. Municipios",
+  "dataset_url": "https://datos.comunidad.madrid/dataset/201276",
+  "resource_url": "https://datos.comunidad.madrid/dataset/eb85755c-68c5-41d5-8c87-969f99a3c6c8/resource/c6b26c2c-fa2e-4c8e-9629-5d2d3f3ef383/download/edad-media-de-la-poblacion.-municipios.csv",
+  "license": "Creative Commons Attribution",
+  "retrieved_on": "2026-11-25",
+  "rows": 5348,
+  "municipal_rows": 5012,
+  "years": [
+    1998,
+    2025
+  ],
+  "map_year": 2025,
+  "map_municipalities": 179,
+  "validation": "Descarga real con catalog.download_table; prueba de interfaz Streamlit con respuesta descargada, carga desde Catálogo y componente cartográfico en 1998 y 2025."
+}
