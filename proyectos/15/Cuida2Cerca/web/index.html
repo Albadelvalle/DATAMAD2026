@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuida2Cerca · Cuidados cerca de casa en la Comunidad de Madrid</title>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<script>try { const t = localStorage.getItem("tema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+<header class="cabecera">
+  <button type="button" id="boton-tema" class="boton-tema" aria-label="Cambiar entre modo claro y oscuro"></button>
+  <div>
+    <h1>Cuida2Cerca</h1>
+    <p class="subtitulo">Dónde faltan plazas de centro de día para personas mayores, cómo crecerá la necesidad, dónde abrirlas y cómo repartir su coste entre municipios.</p>
+  </div>
+  <nav class="pestanas" role="tablist">
+    <button role="tab" data-tab="diagnostico" aria-selected="true">1 · Diagnóstico</button>
+    <button role="tab" data-tab="futuro">2 · Futuro</button>
+    <button role="tab" data-tab="plan">3 · Planificador</button>
+    <button role="tab" data-tab="costes">4 · Reparto de costes</button>
+    <button role="tab" data-tab="metodo">Metodología y datos</button>
+  </nav>
+</header>
+
+<main>
+<!-- 1. DIAGNÓSTICO -->
+<section id="diagnostico" class="panel activo">
+  <div class="filtros">
+    <label>Servicio
+      <select id="d-servicio"><option value="cd">Centro de día</option><option value="res">Residencia</option></select></label>
+    <label>Plazas
+      <select id="d-financiacion"><option value="publica">Con financiación pública</option><option value="total">Todas</option></select></label>
+    <label>Qué consideramos «cerca»
+      <select id="d-radio"><option value="15">Hasta 15 km</option><option value="5">Hasta 5 km</option></select></label>
+    <label class="check"><input type="checkbox" id="d-centros"> Mostrar centros existentes</label>
+  </div>
+  <div class="kpis" id="d-kpis"></div>
+  <div class="dos-columnas">
+    <div class="mapa-caja"><div id="mapa-diag" class="mapa"></div><div class="leyenda" id="d-leyenda"></div></div>
+    <div class="lateral">
+      <h3>Zonas con menos plazas accesibles</h3>
+      <p class="nota" id="d-nota-radio">Plazas al alcance por cada 100 personas mayores con discapacidad, teniendo en cuenta la distancia.</p>
+      <table class="tabla" id="d-tabla"></table>
+    </div>
+  </div>
+</section>
+
+<!-- 2. FUTURO -->
+<section id="futuro" class="panel">
+  <div class="kpis" id="f-kpis"></div>
+  <div class="dos-columnas iguales">
+    <figure class="grafico">
+      <figcaption>Personas de 65 años o más con discapacidad reconocida en la Comunidad de Madrid</figcaption>
+      <div id="f-regional" class="svg-caja"></div>
+      <p class="nota">Línea continua: observado (2011–2025). Línea discontinua: mediana de 500 escenarios simulados; banda: intervalo del 80 %.</p>
+    </figure>
+    <figure class="grafico">
+      <figcaption>Prestaciones de dependencia (índice 2015 = 100)</figcaption>
+      <div id="f-dependencia" class="svg-caja"></div>
+      <p class="nota">Las plazas de residencia apenas crecen mientras la necesidad aumenta: el cuidado se desplaza a los hogares.</p>
+    </figure>
+  </div>
+  <h3>Dónde más crecerá la necesidad hasta 2035</h3>
+  <table class="tabla" id="f-tabla"></table>
+</section>
+
+<!-- 3. PLANIFICADOR -->
+<section id="plan" class="panel">
+  <div class="filtros">
+    <label>Presupuesto
+      <select id="p-presupuesto"></select></label>
+    <label>Qué consideramos «cerca»
+      <select id="p-radio"><option value="15">Hasta 15 km</option><option value="5">Hasta 5 km</option></select></label>
+    <span class="nota">Presupuesto en <b>plazas equivalentes</b>: crear una plaza cuesta 1 y abrir o ampliar un centro cuesta además 20 (sus costes fijos). Con 1.000 se pueden crear, por ejemplo, 6 centros con 880 plazas. Para pasarlo a euros, multiplica por el coste de una plaza.</span>
+  </div>
+  <div class="dos-columnas">
+    <figure class="grafico">
+      <figcaption>Eficiencia frente a equidad (2030)</figcaption>
+      <div id="p-frente" class="svg-caja"></div>
+      <p class="nota">Cada punto es un plan óptimo con un <b>peso de la equidad</b> distinto. El número (×3, ×5, ×9) indica cuántas veces más cuenta una persona sin plaza en una zona sin ningún centro al alcance que en una zona bien servida. «Mínimo 50 %» exige además que cada zona tenga cubierta al menos la mitad de su necesidad.</p>
+      <p class="nota">Abajo a la izquierda es mejor. Los puntos rellenos son planes no dominados: ningún otro es mejor en ambos ejes. Haz clic en uno para verlo en el mapa.</p>
+    </figure>
+    <div class="lateral">
+      <h3 id="p-titulo">Plan seleccionado</h3>
+      <p class="nota" id="p-descripcion"></p>
+      <div class="kpis compactos" id="p-kpis"></div>
+      <table class="tabla" id="p-tabla"></table>
+    </div>
+  </div>
+  <div class="mapa-caja"><div id="mapa-plan" class="mapa"></div><div class="leyenda" id="p-leyenda"></div></div>
+</section>
+
+<!-- 4. REPARTO DE COSTES -->
+<section id="costes" class="panel">
+  <p class="intro">Un centro nuevo da servicio a varios municipios. ¿Cuánto debería pagar cada uno? Lo planteamos como un <strong>juego cooperativo de costes</strong>: cada grupo de municipios puede organizarse por su cuenta (en uno o varios centros) y el reparto justo es el <strong>valor de Shapley</strong>. Comprobamos además si el reparto está en el <strong>núcleo</strong>: ningún subgrupo pagaría menos saliéndose del acuerdo.</p>
+  <div class="filtros">
+    <label>Plan <select id="c-plan"></select></label>
+    <label>Centro <select id="c-centro"></select></label>
+  </div>
+  <div class="filtros">
+    <label>Coste fijo de abrir un centro (€) <input type="number" id="c-fijo" step="10000" min="0"></label>
+    <label>Coste por plaza (€) <input type="number" id="c-plaza" step="1000" min="0"></label>
+    <label>Coste de desplazamiento (€ por plaza y km) <input type="number" id="c-despl" step="50" min="0"></label>
+    <span class="nota">Valores ilustrativos: sustitúyelos por los costes reales.</span>
+  </div>
+  <div class="kpis" id="c-kpis"></div>
+  <div class="dos-columnas">
+    <figure class="grafico">
+      <figcaption>Coste por municipio según el criterio de reparto</figcaption>
+      <div id="c-barras" class="svg-caja"></div>
+    </figure>
+    <div class="lateral">
+      <table class="tabla" id="c-tabla"></table>
+      <div id="c-nucleo" class="aviso"></div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section id="metodo" class="panel">
+  <div class="texto" id="m-texto"></div>
+</section>
+</main>
+
+<div id="tooltip" class="tooltip" role="status" hidden></div>
+<footer>Cuida2Cerca · DATAMAD 2026 · Datos abiertos de la Comunidad de Madrid · Código abierto</footer>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="data/datos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

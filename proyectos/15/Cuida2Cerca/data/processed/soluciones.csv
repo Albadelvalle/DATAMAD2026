@@ -1,0 +1,31 @@
+algoritmo,id_unidad,nombre,plazas_nuevas,plazas_existentes
+reparto_proporcional,28092,Móstoles,150,229.0
+reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+voraz,28013,Aranjuez,130,46.0
+voraz,28047,Collado Villalba,150,50.0
+voraz,28079-carabanchel,Madrid - Carabanchel,150,291.0
+voraz,28079-centro,Madrid - Centro,150,84.0
+voraz,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+voraz,28079-hortaleza,Madrid - Hortaleza,150,79.0
+proporcional+busqueda_local,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+proporcional+busqueda_local,28079-hortaleza,Madrid - Hortaleza,130,79.0
+proporcional+busqueda_local,28079-latina,Madrid - Latina,150,435.0
+proporcional+busqueda_local,28079-moncloaaravaca,Madrid - Moncloa-Aravaca,150,135.0
+proporcional+busqueda_local,28079-retiro,Madrid - Retiro,150,90.0
+proporcional+busqueda_local,28079-sanblas,Madrid - San Blas,150,155.0
+voraz+busqueda_local,28047,Collado Villalba,150,50.0
+voraz+busqueda_local,28079-carabanchel,Madrid - Carabanchel,150,291.0
+voraz+busqueda_local,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+voraz+busqueda_local,28079-hortaleza,Madrid - Hortaleza,150,79.0
+voraz+busqueda_local,28079-latina,Madrid - Latina,130,435.0
+voraz+busqueda_local,28079-retiro,Madrid - Retiro,150,90.0
+milp,28079-carabanchel,Madrid - Carabanchel,150,291.0
+milp,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+milp,28079-hortaleza,Madrid - Hortaleza,150,79.0
+milp,28079-puentedevallecas,Madrid - Puente de Vallecas,130,314.0
+milp,28079-retiro,Madrid - Retiro,150,90.0
+milp,28079-sanblas,Madrid - San Blas,150,155.0
