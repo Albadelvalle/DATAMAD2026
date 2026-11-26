@@ -10,9 +10,9 @@ Ana García · Giulio Consoli
 
 ---
 
-## Vídeo de presentación
+## Vídeo de presentación: activar audio
 
-[![Ver el vídeo de presentación de Madrid a tu medida](./assets/portada-video.jpg)](./assets/video-presentacion.mp4)
+[![Ver el vídeo de presentación de Madrid a tu medida](./assets/portada-video.jpg)](https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing)
 
 ▶️ **[Ver el vídeo en Google Drive](https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing)** — https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing
 
@@ -20,7 +20,7 @@ Descubre Madrid a tu medida a través de las historias de María, Juan, Emilio y
 
 **Recomendamos visualizar el vídeo con el volumen activado.** Su canción original ha sido creada específicamente para acompañar la narrativa del proyecto y explicar sus funcionalidades.
 
-[Ver vídeo de presentación](./assets/video-presentacion.mp4)
+[Ver vídeo de presentación](https://drive.google.com/file/d/1Xl2DD8SFBrs_BqOM4vqoRRRmBPRxcTh-/view?usp=sharing)
 
 ## Explora la aplicación
 
