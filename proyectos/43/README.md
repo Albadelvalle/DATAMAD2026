@@ -2,9 +2,11 @@
 
 **¿Qué colegio público de Madrid se climatiza primero?** Termómetro Escolar cuenta cuántos días de clase pasa cada centro con calor.
 
+> **Resultado:** de 3 a 23 días de clase al año con 27 °C o más, según el centro (2.078 centros públicos, uno a uno) · error medido: 1,5 °C · 2 fallos del portal, corregidos.
+
 Jorge Asenjo (participación individual).
 
-**[Vídeo de la demo (MP4)](termometro-escolar.mp4)** · **[Mapa en vivo](https://jorge-asenjo.github.io/termometro-escolar/)** · **[Presentación (PDF)](termometro-escolar-datamad-2026.pdf)** · [Código y método](https://github.com/jorge-asenjo/termometro-escolar)
+**[▶ Ver el vídeo de la demo (62 s, en el navegador)](https://jorge-asenjo.github.io/termometro-escolar/video.mp4)** · **[Mapa en vivo](https://jorge-asenjo.github.io/termometro-escolar/)** · **[Presentación (PDF)](termometro-escolar-datamad-2026.pdf)** · [Código y método](https://github.com/jorge-asenjo/termometro-escolar) · [Cómo reproducirlo](https://github.com/jorge-asenjo/termometro-escolar#reproducirlo)
 
 [![El mapa: cada cuadro de unos 2,5 km sube tantos días de calor como pasan sus centros; después, la ficha de un colegio de Fuenlabrada](demo.gif)](https://jorge-asenjo.github.io/termometro-escolar/)
 
@@ -37,11 +39,13 @@ La Comunidad tiene un plan de climatización de 840 M€, que prioriza los insti
 
 Del [Portal de Datos Abiertos de la Comunidad de Madrid](https://datos.comunidad.madrid):
 
-- [Red de Calidad del Aire. Datos meteorológicos horarios desde 2020](https://datos.comunidad.madrid/dataset/calidad_aire_datos_meteo_historico)
-- [Estaciones de la Red de Calidad del Aire](https://datos.comunidad.madrid/dataset/calidad_aire_estaciones)
-- [Centros educativos de la Comunidad de Madrid](https://datos.comunidad.madrid/dataset/centros_educativos)
-- [Estadísticas de alumnos de centros educativos](https://datos.comunidad.madrid/dataset/spacm_estadisticas_alumnos)
+| Conjunto | Para qué |
+|---|---|
+| [Red de Calidad del Aire. Datos meteorológicos horarios desde 2020](https://datos.comunidad.madrid/dataset/calidad_aire_datos_meteo_historico) | La temperatura hora a hora: 65.053 días-estación, solo valores validados |
+| [Estaciones de la Red de Calidad del Aire](https://datos.comunidad.madrid/dataset/calidad_aire_estaciones) | Dónde está cada estación y a qué altitud (dos, corregidas) |
+| [Centros educativos de la Comunidad de Madrid](https://datos.comunidad.madrid/dataset/centros_educativos) | Los 2.078 centros públicos, con coordenadas y etapa |
+| [Estadísticas de alumnos de centros educativos](https://datos.comunidad.madrid/dataset/spacm_estadisticas_alumnos) | La matrícula, para estimar los alumnos de cada centro |
 
 Otras fuentes: la altitud del terreno, de [Open-Meteo](https://open-meteo.com/en/docs/elevation-api) (Copernicus DEM GLO-90), y el mapa base, de [OpenFreeMap](https://openfreemap.org) con datos de OpenStreetMap.
 
-Código con licencia MIT. Mapa y resultados (CSV y JSON, un registro por centro), CC BY 4.0. Se reproduce con los scripts del [repositorio](https://github.com/jorge-asenjo/termometro-escolar).
+Código con licencia MIT. Mapa y resultados (CSV y JSON, un registro por centro), CC BY 4.0. Se reproduce con los scripts del repositorio: [siete órdenes, en «Reproducirlo»](https://github.com/jorge-asenjo/termometro-escolar#reproducirlo). El vídeo también está en esta carpeta: [`termometro-escolar.mp4`](termometro-escolar.mp4).
