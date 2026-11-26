@@ -12,7 +12,7 @@ presupuesto limitado y repartir su coste entre los municipios que las comparten.
 
 # Demo GIF
 
-![Demo](https://kommodo.ai/i/5Yu1ONll8L7UxStuH7m4)
+![Enlace a GIF con la demo](https://kommodo.ai/i/5Yu1ONll8L7UxStuH7m4)
 ---
 
 ## Qué hace
@@ -21,7 +21,7 @@ La web tiene cuatro pestañas, pensadas para que la use quien decide sin necesid
 
 | Pestaña | Pregunta | Qué muestra |
 |---|---|---|
-| **1 · Diagnóstico** | ¿Dónde falta hoy? | Plazas accesibles por cada 100 personas en los 178 municipios y los 21 distritos de Madrid, frente a la media regional. Se puede elegir el servicio (centro de día o residencia), el tipo de financiación y qué se considera «cerca» (15 o 5 km). |
+| **1 · Diagnóstico** | ¿Dónde falta hoy? | Plazas accesibles por cada 100 personas en los 178 municipios y los 21 distritos de Madrid, frente a la media regional. Se puede elegir el servicio (centro de día o residencia), el tipo de financiación y qué se considera "cerca" (15 o 5 km). |
 | **2 · Futuro** | ¿Cuánto faltará? | Previsión de la necesidad para 2030 y 2035, con intervalos de incertidumbre obtenidos de 500 escenarios simulados. |
 | **3 · Planificador** | ¿Dónde abrir plazas? | Planes óptimos para varios presupuestos y pesos de la equidad, en un gráfico eficiencia frente a equidad. Al hacer clic en un plan se ven en el mapa los centros que abre o amplía. |
 | **4 · Reparto de costes** | ¿Quién paga? | Para cada centro, cuánto pagaría cada municipio usuario según el valor de Shapley, si el acuerdo es estable (núcleo) y cuánto ahorran frente a ir solos. Los costes son editables. |
@@ -121,8 +121,8 @@ pip install -r requirements.txt      # pandas, numpy, ortools
 El workflow `.github/workflows/pages.yml` publica la carpeta `web/` en cada push a `master` o `main`.
 
 1. Sube el repositorio a GitHub.
-2. En **Settings → Pages → Build and deployment → Source**, elige **GitHub Actions**.
-3. Haz un push (o lanza el workflow a mano desde la pestaña **Actions → Publicar web → Run workflow**).
+2. En **Settings --> Pages --> Build and deployment --> Source**, elige **GitHub Actions**.
+3. Haz un push (o lanza el workflow a mano desde la pestaña **Actions --> Publicar web --> Run workflow**).
 4. La web quedará en `https://<usuario>.github.io/<repositorio>/`.
 
 Si no quieres publicar la web desde un repositorio (por ejemplo, una copia), no actives Pages y elimina
@@ -179,6 +179,10 @@ run_pipeline.py      ejecución reproducible de todo el pipeline (salvo la optim
 
 - Distancias en línea recta, no por carretera ni en transporte público.
 - La demanda de cada distrito de Madrid reparte la del municipio según su población de 65 años o más.
-- «Financiación pública» incluye centros públicos, concertados y los que admiten la prestación vinculada; el
+- "Financiación pública" incluye centros públicos, concertados y los que admiten la prestación vinculada; el
   registro no indica cuántas plazas de cada centro están concertadas.
 - Los costes económicos no proceden de los datos abiertos: son parámetros que cada administración debe ajustar.
+
+## Licencia
+ 
+El código se distribuye bajo la [licencia MIT](LICENSE). Los datos de `data/raw/` proceden del Portal de Datos Abiertos de la Comunidad de Madrid y del Portal de Datos Abiertos del Ayuntamiento de Madrid, y mantienen sus propias condiciones de uso, que permiten la reutilización citando la fuente.
