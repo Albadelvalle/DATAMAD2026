@@ -12,16 +12,16 @@ Autora: Elia Torres Simón.
 
 Cifras con el registro descargado el 23 de noviembre de 2026. La web se actualiza cada semana, así que puede mostrar números algo distintos.
 
-- Medido andando por la calle, que es como se llega de verdad, un martes a las 11:00 solo el 20,7 % de la población tiene un desfibrilador abierto a 200 metros o menos. Un domingo a las 3:00, el 10,4 %. Con 300 m andando, el 42,6 % y el 24,5 %.
-- En línea recta saldría bastante más: el 48,6 % y el 28,2 %. La distancia andando es, en la mediana, 1,5 veces la recta.
-- De los 13.651 aparatos del registro, 2.206 tienen como horario "autobús urbano": van en autobuses de Madrid capital y no cubren un barrio fijo.
-- 4.521 aparatos no indican su horario o lo indican de una forma que no se puede interpretar.
-- 15 municipios no tienen ningún desfibrilador fijo registrado. El mayor es El Molar, con 9.805 habitantes.
-- Si cada una de las 2.954 farmacias de la Comunidad tuviera un desfibrilador, un martes a las 11:00 la cobertura andando pasaría del 20,7 % al 50,7 %: 2,1 millones de personas más. Las diez mejores ya suman 48.747, por unos 25.000 euros en cinco años contando compra y mantenimiento: unos 51 céntimos por persona (cuentas y fuentes en [docs/POR_QUE_IMPORTA.md](docs/POR_QUE_IMPORTA.md)).
-- Las gasolineras abiertas 24 horas sirven de poco de madrugada: aunque las 550 tuvieran uno, la cobertura del domingo a las 3:00 solo pasaría del 10,4 % al 11,4 %, porque están en carreteras y avenidas y no donde vive la gente. Las 329 comisarías, cuarteles de la Guardia Civil y parques de bomberos de OpenStreetMap, que tienen gente de guardia toda la noche, la llevarían al 11,6 %, y todo junto al 12,5 %. Los diez mejores sitios de todos ellos suman 23.648 personas.
-- De madrugada, 548.816 de las 730.421 personas con un aparato cerca dependen de uno solo. Por eso la lista de aparatos "24 horas" por comprobar (`24h_a_revisar.csv`) va ordenada por cuánta gente depende solo de cada uno. 550 de esos "24 horas" están en sitios que suelen cerrar de noche, como colegios, oficinas, tiendas grandes o polideportivos.
-- El registro tiene 2.338 formas distintas de escribir el horario. Leídas y pasadas a un formato fijo, quedan 473 horarios distintos (`horarios_formato_fijo.csv`, con una columna por día y el formato `opening_hours` de OpenStreetMap).
-- Diez aparatos de 24 horas en el mejor sitio posible darían cobertura de madrugada a 52.522 personas más, 11.139 de ellas mayores de 65 años.
+- Medido andando por la calle, que es como se llega de verdad, un martes a las 11:00 solo el **20,7 % de la población** tiene un desfibrilador abierto a 200 metros o menos. Un domingo a las 3:00, el **10,4 %**. Con 300 m andando, el 42,6 % y el 24,5 %.
+- En línea recta saldría bastante más: el **48,6 %** y el **28,2 %**. La distancia andando es, en la mediana, **1,5 veces la recta**.
+- De los 13.651 aparatos del registro, **2.206** tienen como horario "autobús urbano": van en autobuses de Madrid capital y no cubren un barrio fijo.
+- **4.521 aparatos** no indican su horario o lo indican de una forma que no se puede interpretar.
+- **15 municipios** no tienen ningún desfibrilador fijo registrado. El mayor es El Molar, con 9.805 habitantes.
+- Si cada una de las 2.954 farmacias de la Comunidad tuviera un desfibrilador, un martes a las 11:00 la cobertura andando pasaría del 20,7 % al **50,7 %: 2,1 millones de personas más**. Las diez mejores ya suman **48.747**, por unos 25.000 euros en cinco años contando compra y mantenimiento: unos **51 céntimos por persona** (cuentas y fuentes en [docs/POR_QUE_IMPORTA.md](docs/POR_QUE_IMPORTA.md)).
+- Las gasolineras abiertas 24 horas sirven de poco de madrugada: aunque las 550 tuvieran uno, la cobertura del domingo a las 3:00 solo pasaría del 10,4 % al 11,4 %, porque están en carreteras y avenidas y no donde vive la gente. Las 329 comisarías, cuarteles de la Guardia Civil y parques de bomberos de OpenStreetMap, que tienen gente de guardia toda la noche, la llevarían al 11,6 %, y todo junto al 12,5 %. Los diez mejores sitios de todos ellos suman **23.648 personas**.
+- De madrugada, **548.816 de las 730.421 personas** con un aparato cerca dependen de uno solo. Por eso la lista de aparatos "24 horas" por comprobar (`24h_a_revisar.csv`) va ordenada por cuánta gente depende solo de cada uno. **550 de esos "24 horas"** están en sitios que suelen cerrar de noche, como colegios, oficinas, tiendas grandes o polideportivos.
+- El registro tiene **2.338 formas distintas** de escribir el horario. Leídas y pasadas a un formato fijo, quedan 473 horarios distintos (`horarios_formato_fijo.csv`, con una columna por día y el formato `opening_hours` de OpenStreetMap).
+- **Diez aparatos de 24 horas** en el mejor sitio posible darían cobertura de madrugada a **52.522 personas más**, 11.139 de ellas mayores de 65 años.
 - Los vecinos de cada sección censal se reparten entre sus casas según las viviendas de cada edificio en el Catastro. Antes se ponían todos en el centro de la sección, y en los pueblos de urbanizaciones eso escondía aparatos: 155 municipios salían con un 0 % de madrugada y ahora son 69.
 
 Por qué importan tres minutos y 200 metros, con todas las fuentes: [docs/POR_QUE_IMPORTA.md](docs/POR_QUE_IMPORTA.md).
