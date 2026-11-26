@@ -15,6 +15,10 @@
 
 ---
 
+## Presentación del Proyecto
+
+La presentación completa de MADRID SIN ESPERAS — DATAMAD 2026 se encuentra en el archivo **`madrid sin esperas.pdf`**, incluido en el repositorio del proyecto.
+
 ## Características Principales
 
 ### 1. Experiencia de Libre Elección para Pacientes y Ciudadanos
