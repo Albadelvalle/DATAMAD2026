@@ -1,0 +1,7 @@
+algoritmo,objetivo_entrenamiento,objetivo_500,sin_plaza_500,sin_plaza_p90,cobertura_pct,personas_atendidas_extra,km_medio,centros_nuevos,plazas_nuevas,coste,segundos,gap_milp_pct
+sin_actuacion,2326.68,2270.905,2098.097,2679.28,84.17,0.0,1.55,0,0,0.0,0.0,
+reparto_proporcional,1455.404,1400.169,1218.293,1799.28,90.808,879.805,1.512,6,880,1000.0,0.002,
+voraz,1480.715,1423.986,1231.432,1809.15,90.709,866.665,1.602,6,880,1000.0,13.316,
+proporcional+busqueda_local,1447.677,1392.2,1218.293,1799.28,90.808,879.805,1.446,6,880,1000.0,26.525,
+voraz+busqueda_local,1455.662,1399.79,1218.293,1799.28,90.808,879.805,1.509,6,880,1000.0,26.47,
+milp,1446.806,1391.261,1218.293,1799.28,90.808,879.805,1.438,6,880,1000.0,49.929,0.085

@@ -1,0 +1,267 @@
+config,algoritmo,id_unidad,nombre,plazas_nuevas,plazas_existentes
+base,reparto_proporcional,28092,Móstoles,150,229.0
+base,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+base,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+base,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+base,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+base,voraz_exacto,28013,Aranjuez,130,46.0
+base,voraz_exacto,28047,Collado Villalba,150,50.0
+base,voraz_exacto,28079-carabanchel,Madrid - Carabanchel,150,291.0
+base,voraz_exacto,28079-centro,Madrid - Centro,150,84.0
+base,voraz_exacto,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+base,voraz_exacto,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,voraz_ratio,28049,Coslada,130,100.0
+base,voraz_ratio,28123,Rivas-Vaciamadrid,150,105.0
+base,voraz_ratio,28079-arganzuela,Madrid - Arganzuela,150,398.0
+base,voraz_ratio,28079-chamberi,Madrid - Chamberí,150,352.0
+base,voraz_ratio,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,voraz_ratio,28079-tetuan,Madrid - Tetuán,150,328.0
+base,milp_scip,28079-carabanchel,Madrid - Carabanchel,150,291.0
+base,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+base,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,milp_scip,28079-puentedevallecas,Madrid - Puente de Vallecas,130,314.0
+base,milp_scip,28079-retiro,Madrid - Retiro,150,90.0
+base,milp_scip,28079-sanblas,Madrid - San Blas,150,155.0
+beta1,reparto_proporcional,28092,Móstoles,150,229.0
+beta1,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta1,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta1,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta1,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta1,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+beta1,voraz_ratio,28074,Leganés,130,420.0
+beta1,voraz_ratio,28079-centro,Madrid - Centro,150,84.0
+beta1,voraz_ratio,28079-chamartin,Madrid - Chamartín,150,333.0
+beta1,voraz_ratio,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta1,voraz_ratio,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta1,voraz_ratio,28079-tetuan,Madrid - Tetuán,150,328.0
+beta1,milp_scip,28040,Ciempozuelos,130,30.0
+beta1,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta1,milp_scip,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta1,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta1,milp_scip,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta1,milp_scip,28079-sanblas,Madrid - San Blas,150,155.0
+beta2,reparto_proporcional,28092,Móstoles,150,229.0
+beta2,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta2,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta2,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta2,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta2,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+beta2,voraz_ratio,28013,Aranjuez,30,46.0
+beta2,voraz_ratio,28074,Leganés,80,420.0
+beta2,voraz_ratio,28079-barajas,Madrid - Barajas,150,45.0
+beta2,voraz_ratio,28079-chamartin,Madrid - Chamartín,150,333.0
+beta2,voraz_ratio,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta2,voraz_ratio,28079-moratalaz,Madrid - Moratalaz,150,268.0
+beta2,voraz_ratio,28079-usera,Madrid - Usera,150,340.0
+beta2,milp_scip,28170,Villaconejos,130,0.0
+beta2,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta2,milp_scip,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta2,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta2,milp_scip,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta2,milp_scip,28079-sanblas,Madrid - San Blas,150,155.0
+beta4,reparto_proporcional,28092,Móstoles,150,229.0
+beta4,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta4,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta4,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta4,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+beta4,voraz_ratio,28013,Aranjuez,30,46.0
+beta4,voraz_ratio,28049,Coslada,50,100.0
+beta4,voraz_ratio,28058,Fuenlabrada,150,288.0
+beta4,voraz_ratio,28074,Leganés,150,420.0
+beta4,voraz_ratio,28112,Pinilla del Valle,10,0.0
+beta4,voraz_ratio,28079-sanblas,Madrid - San Blas,150,155.0
+beta4,voraz_ratio,28079-usera,Madrid - Usera,150,340.0
+beta4,voraz_ratio,28079-vicalvaro,Madrid - Vicálvaro,150,123.0
+beta4,milp_scip,28040,Ciempozuelos,130,30.0
+beta4,milp_scip,28112,Pinilla del Valle,15,0.0
+beta4,milp_scip,28159,Valdemaqueda,10,0.0
+beta4,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,85,285.0
+beta4,milp_scip,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta4,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4,milp_scip,28079-sanblas,Madrid - San Blas,150,155.0
+beta4,milp_scip,28079-villadevallecas,Madrid - Villa de Vallecas,150,80.0
+beta8,reparto_proporcional,28092,Móstoles,150,229.0
+beta8,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta8,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta8,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta8,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta8,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+beta8,voraz_ratio,28013,Aranjuez,40,46.0
+beta8,voraz_ratio,28042,Colmenar del Arroyo,10,0.0
+beta8,voraz_ratio,28111,Pezuela de las Torres,5,0.0
+beta8,voraz_ratio,28112,Pinilla del Valle,15,0.0
+beta8,voraz_ratio,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta8,voraz_ratio,28079-chamartin,Madrid - Chamartín,150,333.0
+beta8,voraz_ratio,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta8,voraz_ratio,28079-moratalaz,Madrid - Moratalaz,150,268.0
+beta8,voraz_ratio,28079-usera,Madrid - Usera,150,340.0
+beta8,milp_scip,28040,Ciempozuelos,125,30.0
+beta8,milp_scip,28056,Fresnedillas de la Oliva,10,0.0
+beta8,milp_scip,28085,Miraflores de la Sierra,10,0.0
+beta8,milp_scip,28112,Pinilla del Valle,10,0.0
+beta8,milp_scip,28079-chamartin,Madrid - Chamartín,45,333.0
+beta8,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta8,milp_scip,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,125,354.0
+beta8,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta8,milp_scip,28079-moncloaaravaca,Madrid - Moncloa-Aravaca,70,135.0
+beta8,milp_scip,28079-villadevallecas,Madrid - Villa de Vallecas,105,80.0
+cmin50,reparto_proporcional,28092,Móstoles,150,229.0
+cmin50,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+cmin50,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+cmin50,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+cmin50,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+cmin50,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+cmin50,voraz_ratio,28007,Alcorcón,35,350.0
+cmin50,voraz_ratio,28042,Colmenar del Arroyo,15,0.0
+cmin50,voraz_ratio,28111,Pezuela de las Torres,5,0.0
+cmin50,voraz_ratio,28112,Pinilla del Valle,15,0.0
+cmin50,voraz_ratio,28123,Rivas-Vaciamadrid,150,105.0
+cmin50,voraz_ratio,28079-arganzuela,Madrid - Arganzuela,150,398.0
+cmin50,voraz_ratio,28079-chamberi,Madrid - Chamberí,150,352.0
+cmin50,voraz_ratio,28079-latina,Madrid - Latina,150,435.0
+cmin50,voraz_ratio,28079-tetuan,Madrid - Tetuán,150,328.0
+cmin50,milp_scip,28034,Canencia,15,0.0
+cmin50,milp_scip,28040,Ciempozuelos,75,30.0
+cmin50,milp_scip,28056,Fresnedillas de la Oliva,25,0.0
+cmin50,milp_scip,28079-carabanchel,Madrid - Carabanchel,140,291.0
+cmin50,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+cmin50,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+cmin50,milp_scip,28079-retiro,Madrid - Retiro,150,90.0
+cmin50,milp_scip,28079-sanblas,Madrid - San Blas,135,155.0
+beta4_cmin50,reparto_proporcional,28092,Móstoles,150,229.0
+beta4_cmin50,reparto_proporcional,28079-carabanchel,Madrid - Carabanchel,150,291.0
+beta4_cmin50,reparto_proporcional,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta4_cmin50,reparto_proporcional,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta4_cmin50,reparto_proporcional,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4_cmin50,reparto_proporcional,28079-retiro,Madrid - Retiro,150,90.0
+beta4_cmin50,voraz_ratio,28013,Aranjuez,40,46.0
+beta4_cmin50,voraz_ratio,28042,Colmenar del Arroyo,10,0.0
+beta4_cmin50,voraz_ratio,28111,Pezuela de las Torres,5,0.0
+beta4_cmin50,voraz_ratio,28112,Pinilla del Valle,15,0.0
+beta4_cmin50,voraz_ratio,28079-centro,Madrid - Centro,150,84.0
+beta4_cmin50,voraz_ratio,28079-chamartin,Madrid - Chamartín,150,333.0
+beta4_cmin50,voraz_ratio,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4_cmin50,voraz_ratio,28079-moratalaz,Madrid - Moratalaz,150,268.0
+beta4_cmin50,voraz_ratio,28079-usera,Madrid - Usera,150,340.0
+beta4_cmin50,milp_scip,28003,Alameda del Valle,15,0.0
+beta4_cmin50,milp_scip,28147,Titulcia,130,0.0
+beta4_cmin50,milp_scip,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta4_cmin50,milp_scip,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,115,354.0
+beta4_cmin50,milp_scip,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4_cmin50,milp_scip,28079-retiro,Madrid - Retiro,150,90.0
+beta4_cmin50,milp_scip,28079-sanblas,Madrid - San Blas,150,155.0
+base,voraz_ratio+vnd,28079-carabanchel,Madrid - Carabanchel,150,291.0
+base,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+base,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,voraz_ratio+vnd,28079-moncloaaravaca,Madrid - Moncloa-Aravaca,150,135.0
+base,voraz_ratio+vnd,28079-retiro,Madrid - Retiro,150,90.0
+base,voraz_ratio+vnd,28079-sanblas,Madrid - San Blas,130,155.0
+base,grasp_a0.3+vnd,28079-carabanchel,Madrid - Carabanchel,100,291.0
+base,grasp_a0.3+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+base,grasp_a0.3+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+base,grasp_a0.3+vnd,28079-moncloaaravaca,Madrid - Moncloa-Aravaca,100,135.0
+base,grasp_a0.3+vnd,28079-puentedevallecas,Madrid - Puente de Vallecas,120,314.0
+base,grasp_a0.3+vnd,28079-retiro,Madrid - Retiro,150,90.0
+base,grasp_a0.3+vnd,28079-villaverde,Madrid - Villaverde,90,170.0
+beta1,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta1,voraz_ratio+vnd,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,130,354.0
+beta1,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta1,voraz_ratio+vnd,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta1,voraz_ratio+vnd,28079-retiro,Madrid - Retiro,150,90.0
+beta1,voraz_ratio+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta1,grasp_a0.3+vnd,28065,Getafe,70,265.0
+beta1,grasp_a0.3+vnd,28079-chamartin,Madrid - Chamartín,150,333.0
+beta1,grasp_a0.3+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta1,grasp_a0.3+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta1,grasp_a0.3+vnd,28079-vicalvaro,Madrid - Vicálvaro,105,123.0
+beta1,grasp_a0.3+vnd,28079-villadevallecas,Madrid - Villa de Vallecas,125,80.0
+beta1,grasp_a0.3+vnd,28079-villaverde,Madrid - Villaverde,110,170.0
+beta2,voraz_ratio+vnd,28013,Aranjuez,30,46.0
+beta2,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta2,voraz_ratio+vnd,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,145,354.0
+beta2,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta2,voraz_ratio+vnd,28079-moncloaaravaca,Madrid - Moncloa-Aravaca,85,135.0
+beta2,voraz_ratio+vnd,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta2,voraz_ratio+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta2,grasp_a0.3+vnd,28013,Aranjuez,30,46.0
+beta2,grasp_a0.3+vnd,28058,Fuenlabrada,125,288.0
+beta2,grasp_a0.3+vnd,28065,Getafe,105,265.0
+beta2,grasp_a0.3+vnd,28079-barajas,Madrid - Barajas,150,45.0
+beta2,grasp_a0.3+vnd,28079-chamartin,Madrid - Chamartín,150,333.0
+beta2,grasp_a0.3+vnd,28079-latina,Madrid - Latina,150,435.0
+beta2,grasp_a0.3+vnd,28079-vicalvaro,Madrid - Vicálvaro,150,123.0
+beta4,voraz_ratio+vnd,28013,Aranjuez,30,46.0
+beta4,voraz_ratio+vnd,28040,Ciempozuelos,70,30.0
+beta4,voraz_ratio+vnd,28065,Getafe,145,265.0
+beta4,voraz_ratio+vnd,28112,Pinilla del Valle,10,0.0
+beta4,voraz_ratio+vnd,28079-barajas,Madrid - Barajas,135,45.0
+beta4,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4,voraz_ratio+vnd,28079-moratalaz,Madrid - Moratalaz,150,268.0
+beta4,voraz_ratio+vnd,28079-salamanca,Madrid - Salamanca,150,390.0
+beta4,grasp_a0.3+vnd,28013,Aranjuez,30,46.0
+beta4,grasp_a0.3+vnd,28058,Fuenlabrada,10,288.0
+beta4,grasp_a0.3+vnd,28073,Humanes de Madrid,30,40.0
+beta4,grasp_a0.3+vnd,28112,Pinilla del Valle,10,0.0
+beta4,grasp_a0.3+vnd,28079-centro,Madrid - Centro,150,84.0
+beta4,grasp_a0.3+vnd,28079-latina,Madrid - Latina,140,435.0
+beta4,grasp_a0.3+vnd,28079-puentedevallecas,Madrid - Puente de Vallecas,150,314.0
+beta4,grasp_a0.3+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta4,grasp_a0.3+vnd,28079-tetuan,Madrid - Tetuán,150,328.0
+beta8,voraz_ratio+vnd,28013,Aranjuez,40,46.0
+beta8,voraz_ratio+vnd,28111,Pezuela de las Torres,5,0.0
+beta8,voraz_ratio+vnd,28112,Pinilla del Valle,15,0.0
+beta8,voraz_ratio+vnd,28125,Robledo de Chavela,10,0.0
+beta8,voraz_ratio+vnd,28079-chamberi,Madrid - Chamberí,150,352.0
+beta8,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta8,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta8,voraz_ratio+vnd,28079-salamanca,Madrid - Salamanca,150,390.0
+beta8,voraz_ratio+vnd,28079-villadevallecas,Madrid - Villa de Vallecas,150,80.0
+beta8,grasp_a0.3+vnd,28013,Aranjuez,35,46.0
+beta8,grasp_a0.3+vnd,28042,Colmenar del Arroyo,5,0.0
+beta8,grasp_a0.3+vnd,28112,Pinilla del Valle,10,0.0
+beta8,grasp_a0.3+vnd,28159,Valdemaqueda,5,0.0
+beta8,grasp_a0.3+vnd,28079-carabanchel,Madrid - Carabanchel,130,291.0
+beta8,grasp_a0.3+vnd,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta8,grasp_a0.3+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta8,grasp_a0.3+vnd,28079-latina,Madrid - Latina,30,435.0
+beta8,grasp_a0.3+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta8,grasp_a0.3+vnd,28079-villaverde,Madrid - Villaverde,135,170.0
+cmin50,voraz_ratio+vnd,28058,Fuenlabrada,35,288.0
+cmin50,voraz_ratio+vnd,28111,Pezuela de las Torres,5,0.0
+cmin50,voraz_ratio+vnd,28112,Pinilla del Valle,15,0.0
+cmin50,voraz_ratio+vnd,28125,Robledo de Chavela,15,0.0
+cmin50,voraz_ratio+vnd,28079-barajas,Madrid - Barajas,150,45.0
+cmin50,voraz_ratio+vnd,28079-carabanchel,Madrid - Carabanchel,150,291.0
+cmin50,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+cmin50,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+cmin50,voraz_ratio+vnd,28079-retiro,Madrid - Retiro,150,90.0
+cmin50,grasp_a0.3+vnd,28042,Colmenar del Arroyo,15,0.0
+cmin50,grasp_a0.3+vnd,28112,Pinilla del Valle,10,0.0
+cmin50,grasp_a0.3+vnd,28115,Pozuelo de Alarcón,70,145.0
+cmin50,grasp_a0.3+vnd,28123,Rivas-Vaciamadrid,65,105.0
+cmin50,grasp_a0.3+vnd,28079-barajas,Madrid - Barajas,110,45.0
+cmin50,grasp_a0.3+vnd,28079-chamartin,Madrid - Chamartín,130,333.0
+cmin50,grasp_a0.3+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+cmin50,grasp_a0.3+vnd,28079-villadevallecas,Madrid - Villa de Vallecas,150,80.0
+cmin50,grasp_a0.3+vnd,28079-villaverde,Madrid - Villaverde,120,170.0
+beta4_cmin50,voraz_ratio+vnd,28013,Aranjuez,40,46.0
+beta4_cmin50,voraz_ratio+vnd,28111,Pezuela de las Torres,5,0.0
+beta4_cmin50,voraz_ratio+vnd,28112,Pinilla del Valle,15,0.0
+beta4_cmin50,voraz_ratio+vnd,28125,Robledo de Chavela,10,0.0
+beta4_cmin50,voraz_ratio+vnd,28079-ciudadlineal,Madrid - Ciudad Lineal,150,285.0
+beta4_cmin50,voraz_ratio+vnd,28079-fuencarralelpardo,Madrid - Fuencarral-El Pardo,150,354.0
+beta4_cmin50,voraz_ratio+vnd,28079-hortaleza,Madrid - Hortaleza,150,79.0
+beta4_cmin50,voraz_ratio+vnd,28079-salamanca,Madrid - Salamanca,150,390.0
+beta4_cmin50,voraz_ratio+vnd,28079-sanblas,Madrid - San Blas,150,155.0
+beta4_cmin50,grasp_a0.3+vnd,28003,Alameda del Valle,10,0.0
+beta4_cmin50,grasp_a0.3+vnd,28013,Aranjuez,30,46.0
+beta4_cmin50,grasp_a0.3+vnd,28058,Fuenlabrada,145,288.0
+beta4_cmin50,grasp_a0.3+vnd,28111,Pezuela de las Torres,5,0.0
+beta4_cmin50,grasp_a0.3+vnd,28125,Robledo de Chavela,5,0.0
+beta4_cmin50,grasp_a0.3+vnd,28079-carabanchel,Madrid - Carabanchel,75,291.0
+beta4_cmin50,grasp_a0.3+vnd,28079-centro,Madrid - Centro,150,84.0
+beta4_cmin50,grasp_a0.3+vnd,28079-chamberi,Madrid - Chamberí,115,352.0
+beta4_cmin50,grasp_a0.3+vnd,28079-hortaleza,Madrid - Hortaleza,145,79.0
+beta4_cmin50,grasp_a0.3+vnd,28079-salamanca,Madrid - Salamanca,120,390.0
