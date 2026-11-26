@@ -1,0 +1,79 @@
+name: Aceptar entregas
+
+# Fusiona automáticamente las entregas válidas hasta el 26/11/2026 a las 17:00 (Madrid).
+# Solo acepta pull requests que modifiquen una única carpeta proyectos/N (N del 1 al 50),
+# la misma regla que comprueba "Validar entrega".
+
+on:
+  workflow_run:
+    workflows: ["Validar entrega"]
+    types: [completed]
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: aceptar-entregas
+  cancel-in-progress: false
+
+jobs:
+  aceptar:
+    name: Fusionar entregas válidas
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Revisar y fusionar pull requests abiertos
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Hora límite: 26/11/2026 17:00 en Madrid = 16:00 UTC
+            const LIMITE = new Date('2026-11-26T16:00:00Z');
+            if (new Date() >= LIMITE) {
+              core.info('Plazo cerrado: no se fusiona nada más.');
+              return;
+            }
+
+            const { owner, repo } = context.repo;
+            const patron = /^proyectos\/([1-9]|[1-4][0-9]|50)\/.+/;
+
+            const prs = await github.paginate(github.rest.pulls.list, {
+              owner, repo, state: 'open', base: 'main', per_page: 100,
+            });
+            core.info(`Pull requests abiertos: ${prs.length}`);
+
+            for (const pr of prs) {
+              if (pr.draft) {
+                core.info(`#${pr.number}: borrador, se omite.`);
+                continue;
+              }
+
+              const files = await github.paginate(github.rest.pulls.listFiles, {
+                owner, repo, pull_number: pr.number, per_page: 100,
+              });
+              const rutas = [];
+              for (const f of files) {
+                rutas.push(f.filename);
+                if (f.previous_filename) rutas.push(f.previous_filename);
+              }
+              const fuera = rutas.filter(r => !patron.test(r));
+              const carpetas = [...new Set(rutas.filter(r => patron.test(r)).map(r => r.split('/')[1]))];
+
+              if (rutas.length === 0 || fuera.length > 0 || carpetas.length !== 1) {
+                core.info(`#${pr.number}: no cumple las reglas de entrega, se deja para revisión manual.`);
+                continue;
+              }
+
+              try {
+                await github.rest.pulls.merge({
+                  owner, repo, pull_number: pr.number,
+                  commit_title: `Equipo ${carpetas[0]}: entrega del proyecto (#${pr.number})`,
+                });
+                core.info(`#${pr.number}: fusionado (proyectos/${carpetas[0]}).`);
+              } catch (e) {
+                core.warning(`#${pr.number}: todavía no se puede fusionar (${e.message}).`);
+              }
+            }
