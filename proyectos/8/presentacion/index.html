@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>moviliMAD · DATAMAD 2026</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+@font-face{font-family:'Libre Franklin';font-style:normal;font-weight:400 900;src:url('fonts/librefranklin-v20-latin-variable.woff2') format('woff2');}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:500 600;src:url('fonts/newsreader-v26-latin-variable.woff2') format('woff2');}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:500 600;src:url('fonts/newsreader-v26-latin-italic-variable.woff2') format('woff2');}
+:root{--primary:#C60B1E;--primary-soft:#FDE1E4;--primary-line:#F5A3AB;--secondary:#FFC72C;--paper:#fff;--paper-warm:#FAF6EF;--ink:#15171B;--muted:#5B5E66;--line:#E5E1D8;}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;background:#0d0e10;overflow:hidden;}
+body{font-family:'Libre Franklin',-apple-system,'Segoe UI',sans-serif;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.4;}
+a{color:inherit;}
+#escena{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;}
+.slide{position:absolute;inset:0;background:var(--paper);padding:60px 88px 70px;overflow:hidden;visibility:hidden;opacity:0;transition:opacity .35s;}
+.slide.activa{visibility:visible;opacity:1;}
+h1,h2,h3{font-weight:800;letter-spacing:-0.02em;margin:0;text-wrap:balance;}
+.rojo{color:var(--primary);}
+.serif{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;}
+.kicker{font-size:20px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}
+.bandera{display:inline-block;width:34px;height:22px;vertical-align:-3px;border-radius:3px;}
+.cifra .bandera{width:50px;height:32px;vertical-align:2px;margin-left:6px;border:2px solid #fff;border-radius:4px;}
+.pie{position:absolute;left:88px;right:88px;bottom:24px;display:flex;justify-content:space-between;font-size:16px;font-weight:600;color:var(--muted);}
+.pie b{color:var(--ink);font-weight:900;} .pie b i{font-style:normal;color:var(--primary);}
+
+/* 1 · Portada */
+.s1{display:grid;grid-template-columns:800px 1fr;gap:72px;align-items:center;background:linear-gradient(180deg,#fff 0%,var(--paper-warm) 100%);}
+.s1 h1{font-size:150px;font-weight:900;letter-spacing:-0.045em;line-height:.95;margin-top:18px;}
+.s1 .slogan{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:42px;line-height:1.15;margin:14px 0 34px;}
+.s1 h2{font-size:45px;line-height:1.12;}
+.s1 .desc{font-size:23px;line-height:1.48;color:#33363c;margin:22px 0 0;}
+.s1 .desc2{margin-top:14px;font-weight:600;color:var(--ink);}
+.autor{margin-top:32px;padding-top:26px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;align-items:baseline;gap:20px;}
+.autor b{font-size:28px;font-weight:800;} .autor span{font-size:20px;color:var(--muted);font-weight:600;}
+.marco{border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 30px 70px rgba(21,23,27,.2);}
+.marco-barra{height:38px;background:#F1EEE7;display:flex;align-items:center;gap:8px;padding:0 16px;font-size:15px;font-weight:600;color:var(--muted);}
+.marco-barra i{width:12px;height:12px;border-radius:50%;background:#D6D1C6;} .marco-barra span{margin-left:12px;}
+.marco video,.marco img{display:block;width:100%;height:auto;background:#111;}
+.s1 figure{margin:0;} .s1 figcaption{font-size:17px;color:var(--muted);font-weight:600;margin:12px 4px 0;}
+.cifras3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;}
+.cifra{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;}
+.cifra b{display:block;font-size:50px;font-weight:900;color:var(--primary);line-height:1;letter-spacing:-0.02em;}
+.cifra span{display:block;font-size:17px;font-weight:600;color:var(--muted);line-height:1.3;margin-top:8px;}
+.cifra.roja{background:var(--primary);border-color:var(--primary);} .cifra.roja b,.cifra.roja span{color:#fff;}
+
+/* 2 · Problema y datos */
+.s2,.s3{padding-top:86px;}
+.s2 .cab{display:grid;grid-template-columns:1fr 640px;gap:60px;align-items:end;}
+.s2 h2{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:500;font-size:56px;line-height:1.08;letter-spacing:-0.01em;margin-top:12px;}
+.s2 .lead{font-size:21px;line-height:1.45;color:#33363c;margin:0;}
+.s2 .tesis{font-size:34px;font-weight:900;line-height:1.15;margin:12px 0 0;padding-left:18px;border-left:6px solid var(--primary);}
+.s2 .medio{display:grid;grid-template-columns:1fr 1fr 330px;gap:34px;margin-top:30px;}
+.col-t{display:flex;justify-content:space-between;align-items:baseline;font-size:17px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding-bottom:8px;border-bottom:3px solid var(--ink);}
+.col-t small{font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--muted);}
+.lista{list-style:none;margin:0;padding:0;}
+.lista li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:21px;}
+.lista a{font-weight:600;text-decoration:underline;text-decoration-color:var(--primary-line);text-decoration-thickness:2px;text-underline-offset:4px;}
+.lista a::after{content:' ↗';color:var(--primary);font-weight:800;font-size:.8em;}
+.lista b{font-weight:900;color:var(--primary);white-space:nowrap;} .lista b.cero{color:var(--muted);font-weight:600;font-size:15px;}
+.cajas{display:grid;gap:16px;align-content:start;}
+.caja{background:var(--primary);color:#fff;border-radius:18px;padding:20px 24px;}
+.caja b{display:block;font-size:68px;font-weight:900;line-height:1;letter-spacing:-0.03em;}
+.caja span{display:block;font-size:18px;line-height:1.3;margin-top:8px;}
+.nota{font-size:14.5px;color:var(--muted);margin:2px 2px 0;line-height:1.35;}
+.red{position:relative;height:88px;margin-top:6px;}
+.red svg{display:block;width:100%;height:100%;overflow:visible;}
+.red .tramo{fill:none;stroke:var(--primary-line);stroke-width:3;stroke-dasharray:6 6;animation:trazos .7s linear infinite;}
+@keyframes trazos{to{stroke-dashoffset:-12;}}
+.red .luz{fill:var(--secondary);offset-rotate:0deg;opacity:0;filter:drop-shadow(0 0 4px rgba(255,199,44,.95));animation:viaje 6.4s cubic-bezier(.45,0,.55,1) infinite;}
+@keyframes viaje{0%{offset-distance:0%;opacity:0;}2%{opacity:1;}24%{offset-distance:100%;opacity:1;}27%,100%{offset-distance:100%;opacity:0;}}
+.red .boca{fill:var(--primary-line);}
+.nodo{position:absolute;left:50%;top:0;height:42px;transform:translateX(-50%);display:flex;align-items:center;background:#fff;border:2px solid var(--primary);border-radius:14px;padding:0 22px;font-weight:900;font-size:22px;letter-spacing:-0.02em;}
+.nodo b{color:var(--primary);}
+.tarjetas{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+.tj{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px 16px 16px;animation:llegada 6.4s ease-in-out infinite;animation-delay:2s;}
+@keyframes llegada{0%,14%,100%{box-shadow:0 0 0 0 rgba(255,199,44,0);border-color:var(--line);}4%{box-shadow:0 0 0 4px rgba(255,199,44,.55);border-color:var(--secondary);}}
+.tj b{display:block;font-size:36px;font-weight:900;color:var(--primary);line-height:1.05;}
+.tj b.txt{font-size:20px;color:var(--ink);line-height:1.15;}
+.tj span{display:block;font-size:15px;font-weight:600;color:var(--muted);line-height:1.28;margin-top:5px;}
+
+/* 3 · Resultados */
+.s3{background:var(--ink);color:#fff;}
+.s3 .kicker{color:var(--secondary);}
+.s3 h2{font-size:64px;line-height:1.06;margin-top:14px;max-width:1500px;}
+.s3 h2 .serif{color:var(--secondary);font-weight:500;}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:36px;}
+.res{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:34px 34px 30px;}
+.res .tag{display:inline-block;font-size:17px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--secondary);border-radius:999px;padding:5px 16px;}
+.res h3{font-size:32px;line-height:1.15;margin:18px 0 18px;}
+.res ul{list-style:none;margin:0;padding:0;}
+.res li{position:relative;padding:0 0 0 26px;margin:0 0 12px;font-size:21.5px;line-height:1.38;color:#DAD8D3;}
+.res li::before{content:'';position:absolute;left:0;top:12px;width:12px;height:3px;background:var(--secondary);}
+.res li strong{color:#fff;font-weight:700;}
+.enlaces{display:flex;justify-content:center;margin-top:26px;}
+.enlace{display:flex;align-items:baseline;gap:14px;text-decoration:none;background:var(--primary);border-radius:999px;padding:18px 46px;}
+.enlace span{font-size:26px;font-weight:600;color:#fff;}
+.enlace b{font-size:34px;white-space:nowrap;font-weight:800;} .enlace b::after{content:' →';}
+.s3 .cita{font-family:'Newsreader',Georgia,serif;font-style:italic;font-size:32px;text-align:center;margin:26px 0 0;color:#fff;}
+.s3 .pie{color:#9a9da4;} .s3 .pie b{color:#fff;}
+
+/* 4 · Pantallazo / vídeo */
+.s4{background:var(--paper-warm);padding-top:44px;}
+.s4 .cab{display:flex;justify-content:space-between;align-items:baseline;gap:40px;margin-bottom:18px;}
+.s4 h2{font-size:34px;}
+.s4 .marco{width:1500px;margin:0 auto;}
+.s4 .marco video{height:800px;object-fit:contain;cursor:pointer;}
+.s4 figure{margin:0;} .s4 figcaption{text-align:center;font-size:19px;font-weight:600;color:var(--muted);margin-top:12px;}
+
+/* Navegación */
+#nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:12px;z-index:5;}
+#nav button{width:34px;height:34px;border-radius:50%;border:2px solid #fff;background:var(--primary);color:#fff;font:800 16px/1 'Libre Franklin',sans-serif;cursor:pointer;padding:0;opacity:.5;transition:opacity .2s,transform .2s;}
+#nav button:hover{opacity:.85;}
+#nav button.activa{opacity:1;transform:scale(1.18);box-shadow:0 2px 10px rgba(198,11,30,.45);}
+
+@media print{
+  @page{size:1920px 1080px;margin:0;}
+  html,body{height:auto;overflow:visible;background:#fff;}
+  #escena{position:static;transform:none !important;width:1920px;height:auto;margin:0 !important;}
+  .slide{position:relative;visibility:visible;opacity:1;height:1080px;page-break-after:always;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  #nav{display:none;} *{animation:none !important;} .red .luz{display:none;}
+}
+</style>
+</head>
+<body>
+<div id="escena">
+
+<!-- 1 · PORTADA: título, integrante y descripción -->
+<section class="slide s1 activa" aria-label="Portada">
+  <div>
+    <div class="kicker">DATAMAD 2026 · Jornada final</div>
+    <h1>movili<span class="rojo">MAD</span></h1>
+    <p class="slogan">Tu asistente de movilidad inclusiva en Madrid.</p>
+    <h2>Convertimos los datos abiertos en <span class="rojo">respuestas y rutas adaptadas.</span></h2>
+    <p class="desc">Para que cualquier persona, especialmente quien tiene <strong>movilidad reducida</strong>, encuentre el servicio público que necesita y tenga una <strong>ruta adaptada para llegar, con distancia y tiempo reales</strong>, calculados para su forma de moverse: en silla de ruedas, a pie, en bici o en coche con tráfico real.</p>
+    <p class="desc desc2">moviliMAD saca a la luz recursos públicos que solo están en los datos abiertos y que los navegadores tradicionales excluyen.</p>
+    <div class="autor"><b>Eugenio Serrano Mayor</b><span>e.serranom.2020@alumnos.urjc.es</span></div>
+  </div>
+  <div>
+    <figure>
+      <div class="marco">
+        <div class="marco-barra"><i></i><i></i><i></i><span>movilimad.es</span></div>
+        <video id="v-portada" muted loop playsinline autoplay poster="media/recorrido-poster.jpg" width="1120" height="588"><source src="media/recorrido.mp4" type="video/mp4"></video>
+      </div>
+      <figcaption>Grabación real de moviliMAD: una ruta accesible, recorrida en 3D.</figcaption>
+    </figure>
+    <div class="cifras3">
+      <div class="cifra roja"><b>14 <svg class="bandera" viewBox="0 0 22 14" role="img" aria-label="Bandera de la Comunidad de Madrid"><rect width="22" height="14" rx="1.5" fill="#C60B1E"/><g fill="#fff"><path d="M4.4 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M8.8 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M13.2 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M17.6 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M6.6 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M11 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M15.4 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/></g></svg></b><span>conjuntos de datos de la Comunidad de Madrid</span></div>
+      <div class="cifra"><b>85</b><span>conjuntos de datos abiertos de 5 organismos</span></div>
+      <div class="cifra"><b>61.019</b><span>servicios y recursos públicos geolocalizados</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · PROBLEMA, DATASETS Y FUENTES -->
+<section class="slide s2" aria-label="Problema y datos">
+  <div class="cab">
+    <div>
+      <div class="kicker">El problema y los datos</div>
+      <h2>«¿Dónde está el desfibrilador más cercano? ¿Y cómo llego hasta él?»</h2>
+    </div>
+    <div>
+      <p class="lead">El registro de la Comunidad de Madrid sitúa <strong>7.967 desfibriladores</strong> en la ciudad, publicados como datos abiertos. En una emergencia nadie necesita la lista: necesita el más cercano y cómo llegar.</p>
+      <p class="tesis">Los datos están abiertos.<br><span class="rojo">Falta que sean útiles.</span></p>
+    </div>
+  </div>
+  <div class="medio">
+    <div>
+      <div class="col-t"><span>Portal de datos abiertos <svg class="bandera" viewBox="0 0 22 14" role="img" aria-label="Bandera de la Comunidad de Madrid"><rect width="22" height="14" rx="1.5" fill="#C60B1E"/><g fill="#fff"><path d="M4.4 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M8.8 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M13.2 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M17.6 2.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M6.6 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M11 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/><path d="M15.4 7.85l.42 1.17 1.24.04-.98.77.35 1.19-1.03-.7-1.03.7.35-1.19-.98-.77 1.24-.04z"/></g></svg></span><small>datos.comunidad.madrid</small></div>
+      <ul class="lista"><li><a href="https://datos.comunidad.madrid/dataset/d2478503-a4ae-4753-9540-9200071803c4" target="_blank" rel="noopener">Desfibriladores (DEA)</a><b>7.967</b></li><li><a href="https://datos.comunidad.madrid/dataset/d8a0a444-adf5-4c04-8999-0eac3de52cb7" target="_blank" rel="noopener">Clínicas dentales y consultas médicas</a><b>5.106</b></li><li><a href="https://datos.comunidad.madrid/dataset/c750856d-3166-4dac-8e80-d1b824c968b5" target="_blank" rel="noopener">Centros educativos y FP</a><b>2.953</b></li><li><a href="https://datos.comunidad.madrid/dataset/2d682b1d-e2e8-4c6f-b902-7a3f108e2fb9" target="_blank" rel="noopener">Oficinas de farmacia</a><b>1.811</b></li><li><a href="https://datos.comunidad.madrid/catalogo/dataset/b8cdb7f7-3185-4938-800a-fefda72333f5" target="_blank" rel="noopener">Centros de atención social</a><b>1.249</b></li><li><a href="https://datos.comunidad.madrid/catalogo/dataset/b155ad55-f386-4afb-a9fa-647f7d17c6c3" target="_blank" rel="noopener">Librerías</a><b>388</b></li><li><a href="https://datos.comunidad.madrid/dataset/cd55d34c-64e2-4ad0-911d-d3e7bdf53a91" target="_blank" rel="noopener">Áreas recreativas y espacios naturales</a><b class="cero">fuera del municipio</b></li></ul>
+    </div>
+    <div>
+      <div class="col-t"><span>Consorcio de Transportes y Metro</span><small>datos abiertos del CRTM</small></div>
+      <ul class="lista"><li><a href="https://www.arcgis.com/home/item.html?id=5c7f2951962540d69ffe8f640d94c246" target="_blank" rel="noopener">Estaciones y accesos de Metro</a><b>923</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/PtosVenta/FeatureServer/0" target="_blank" rel="noopener">Puntos de venta de la Tarjeta Transporte</a><b>752</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/M8_Red/FeatureServer/0" target="_blank" rel="noopener">Paradas de autobuses interurbanos</a><b>668</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/AparcamientosCM/FeatureServer/0" target="_blank" rel="noopener">Aparcamientos disuasorios</a><b>37</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/M10_Red/FeatureServer/0" target="_blank" rel="noopener">Estaciones de Metro Ligero</a><b>30</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/OOGG/FeatureServer/0" target="_blank" rel="noopener">Oficinas de la Tarjeta Transporte</a><b>16</b></li><li><a href="https://services5.arcgis.com/UxADft6QPcvFyDU1/arcgis/rest/services/Bici_Publica_TP/FeatureServer/0" target="_blank" rel="noopener">Aparcamientos de bicicletas reB</a><b>15</b></li></ul>
+    </div>
+    <div class="cajas">
+      <div class="caja"><b>21.915</b><span>registros de 14 conjuntos de datos de la Comunidad de Madrid</span></div>
+      <div class="caja"><b>36 %</b><span>de todo lo que muestra el mapa: uno de cada tres recursos</span></div>
+      <p class="nota">Catálogo del 26 de noviembre de 2026. Cada nombre enlaza a su fuente. Las 85 fuentes, en movilimad.es/fuentes.php</p>
+    </div>
+  </div>
+  <div class="red" id="red"><svg></svg><div class="nodo">movili<b>MAD</b></div></div>
+  <div class="tarjetas" id="tarjetas">
+    <div class="tj"><b>85</b><span>conjuntos de datos de 5 organismos: CAM, Ayuntamiento, CRTM, EMT y Renfe</span></div>
+    <div class="tj"><b>94</b><span>categorías: salud, servicios sociales, emergencias, cultura, transporte…</span></div>
+    <div class="tj"><b>61.019</b><span>servicios y recursos públicos geolocalizados en 21 distritos</span></div>
+    <div class="tj"><b>5</b><span>formas de moverse: accesible, peatón, bici, coche y vehículo pesado</span></div>
+    <div class="tj"><b class="txt">Tecnologías abiertas</b><span>OpenStreetMap, Leaflet, MapLibre, openrouteservice, Valhalla, CartoCiudad (IGN), GeoParquet</span></div>
+    <div class="tj"><b class="txt">Datos normalizados y trazables</b><span>esquema común, fuente en cada ficha y actualización diaria</span></div>
+  </div>
+  <div class="pie"><b>movili<i>MAD</i></b><span>2 / 4</span></div>
+</section>
+
+<!-- 3 · RESULTADOS: utilidad, impacto, viabilidad y enlaces -->
+<section class="slide s3" aria-label="Resultados">
+  <div class="kicker">Principales resultados</div>
+  <h2>Descubrir lo que hay <span class="serif">permite detectar lo que falta.</span></h2>
+  <div class="tres">
+    <div class="res">
+      <span class="tag">Utilidad</span>
+      <h3>Del dato a la respuesta, y de la respuesta a la ruta</h3>
+      <ul>
+        <li><strong>Preguntas en lenguaje natural:</strong> «desfibriladores cerca de Sol» devuelve 104 equipos a menos de 500 m, sobre el mapa 3D.</li>
+        <li><strong>Ruta adaptada a 5 formas de moverse,</strong> con distancia y tiempo reales: silla de ruedas, a pie, bici, coche y vehículo pesado.</li>
+        <li><strong>Cada ficha indica su fuente</strong> y enlaza al registro original.</li>
+        <li><strong>Datos reutilizables:</strong> cada categoría, normalizada en GeoParquet.</li>
+      </ul>
+    </div>
+    <div class="res">
+      <span class="tag">Impacto</span>
+      <h3>Movilidad sin barreras y conocimiento para decidir</h3>
+      <ul>
+        <li><strong>Social:</strong> 13.415 plazas reservadas, accesos de Metro con ascensor y centros de atención social, al alcance de quien tiene movilidad reducida.</li>
+        <li><strong>Administraciones:</strong> la cobertura por distritos y barrios ayuda a planificar con base territorial.</li>
+        <li><strong>Empresas y emprendedores:</strong> una necesidad poco cubierta puede señalar una oportunidad.</li>
+      </ul>
+    </div>
+    <div class="res">
+      <span class="tag">Viabilidad</span>
+      <h3>En funcionamiento, abierto y transferible</h3>
+      <ul>
+        <li><strong>Ya funciona en movilimad.es,</strong> con datos actualizados a diario y tráfico en tiempo real.</li>
+        <li><strong>Tecnologías abiertas:</strong> OpenStreetMap, MapLibre, Leaflet, openrouteservice, Valhalla y GeoParquet. El código se publicará como código abierto.</li>
+        <li><strong>Transferible a los 179 municipios</strong> de la región: basta configurar sus fuentes de datos.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="enlaces">
+    <a class="enlace" href="https://movilimad.es/"><span>Ya en funcionamiento en</span><b>movilimad.es</b></a>
+  </div>
+  <p class="cita">Abrir los datos es el primer paso. El siguiente es conseguir que sean útiles.</p>
+  <div class="pie"><b>movili<i>MAD</i></b><span>3 / 4</span></div>
+</section>
+
+<!-- 4 · PANTALLAZO: vídeo de la aplicación (media/demo.mp4); si no existe, el recorrido de la portada -->
+<section class="slide s4" aria-label="La aplicación en funcionamiento">
+  <div class="cab"><div class="kicker">moviliMAD en funcionamiento</div><h2>Pregunta, mira el mapa <span class="rojo">y llega.</span></h2></div>
+  <figure>
+    <div class="marco">
+      <div class="marco-barra"><i></i><i></i><i></i><span>movilimad.es/app.php</span></div>
+      <video id="v-demo" muted playsinline preload="metadata" poster="media/solucion-como.jpg"><source src="media/demo.mp4" type="video/mp4"></video>
+    </div>
+    <figcaption id="v-pie">Grabación real de la aplicación: la pregunta, los resultados sobre el mapa 3D, la ficha con su fuente y la ruta accesible.</figcaption>
+  </figure>
+  <div class="pie"><b>movili<i>MAD</i></b><span>4 / 4</span></div>
+</section>
+
+</div>
+<div id="nav" aria-label="Diapositivas"></div>
+
+<script>
+(function () {
+  var escena = document.getElementById('escena');
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var nav = document.getElementById('nav');
+  var actual = 0;
+  function escalar() {
+    var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    escena.style.transform = 'scale(' + k + ')';
+    escena.style.marginLeft = (-960 * k) + 'px';
+    escena.style.marginTop = (-540 * k) + 'px';
+  }
+  window.addEventListener('resize', escalar); escalar();
+
+  var vPortada = document.getElementById('v-portada');
+  var vDemo = document.getElementById('v-demo');
+  // Si aún no está media/demo.mp4, la cuarta diapositiva muestra el recorrido de la portada
+  vDemo.querySelector('source').addEventListener('error', function () {
+    vDemo.src = 'media/recorrido.mp4'; vDemo.poster = 'media/recorrido-poster.jpg'; vDemo.loop = true;
+    document.getElementById('v-pie').textContent = 'Grabación real de moviliMAD: una ruta accesible, recorrida en 3D hasta la ficha del destino.';
+  });
+  vDemo.addEventListener('click', function () { vDemo.paused ? vDemo.play() : vDemo.pause(); });
+
+  function ir(n) {
+    actual = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, i) { s.classList.toggle('activa', i === actual); });
+    [].forEach.call(nav.children, function (b, i) { b.classList.toggle('activa', i === actual); });
+    if (actual === 0) { vPortada.play().catch(function () {}); } else { vPortada.pause(); }
+    if (actual === 3) { vDemo.currentTime = 0; vDemo.play().catch(function () {}); } else { vDemo.pause(); }
+    try { history.replaceState(null, '', '#' + (actual + 1)); } catch (e) {}
+  }
+  slides.forEach(function (s, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = i + 1;
+    b.setAttribute('aria-label', 'Diapositiva ' + (i + 1));
+    b.addEventListener('click', function () { ir(i); }); nav.appendChild(b);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'].indexOf(e.key) > -1) { e.preventDefault(); ir(actual + 1); }
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].indexOf(e.key) > -1) { e.preventDefault(); ir(actual - 1); }
+    else if (e.key === 'Home') ir(0);
+    else if (e.key === 'End') ir(slides.length - 1);
+    else if (e.key >= '1' && e.key <= '4') ir(+e.key - 1);
+    else if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  });
+
+  // Red del nodo «moviliMAD» a las tarjetas (la de la cabecera de la web)
+  function red() {
+    var caja = document.getElementById('red'), svg = caja.querySelector('svg');
+    var NS = 'http://www.w3.org/2000/svg', W = caja.offsetWidth, H = caja.offsetHeight;
+    function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var tj = [].slice.call(document.querySelectorAll('#tarjetas .tj'));
+    var xs = tj.map(function (c) { return Math.round(c.offsetLeft - caja.offsetLeft + c.offsetWidth / 2); });
+    var hx = Math.round(W / 2), R = 12, nodoB = 44, y2 = 68, luces = [];
+    function tramo(d) { svg.appendChild(el('path', { d: d, 'class': 'tramo' })); }
+    tramo('M' + hx + ' ' + nodoB + ' V' + y2);
+    tramo('M' + hx + ' ' + y2 + ' H' + (Math.min.apply(null, xs) + R));
+    tramo('M' + hx + ' ' + y2 + ' H' + (Math.max.apply(null, xs) - R));
+    xs.forEach(function (x, k) {
+      var s = x < hx ? -1 : 1, t = 0.6 + Math.abs(k - (xs.length - 1) / 2) * 0.05;
+      tramo('M' + (x - s * R) + ' ' + y2 + ' Q' + x + ' ' + y2 + ' ' + x + ' ' + (y2 + R) + ' V' + (H - 4));
+      luces.push(['M' + hx + ' ' + nodoB + ' V' + (y2 - R) + ' Q' + hx + ' ' + y2 + ' ' + (hx + s * R) + ' ' + y2 + ' H' + (x - s * R) + ' Q' + x + ' ' + y2 + ' ' + x + ' ' + (y2 + R) + ' V' + (H - 4), t]);
+      svg.appendChild(el('circle', { cx: x, cy: H - 4, r: 4, 'class': 'boca' }));
+    });
+    luces.forEach(function (l) {
+      var c = el('circle', { r: 5, 'class': 'luz' });
+      c.style.offsetPath = "path('" + l[0] + "')"; c.style.animationDelay = l[1].toFixed(2) + 's';
+      svg.appendChild(c);
+    });
+  }
+  red();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(red);
+  ir((parseInt(location.hash.slice(1), 10) || 1) - 1);
+})();
+</script>
+</body>
+</html>
